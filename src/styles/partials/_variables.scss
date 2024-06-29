@@ -5,10 +5,82 @@ $lg: 992px;
 $md: 768px;
 $mobile: 576px;
 
-//colors
-$primary-color: #17c2ec;
-$secondary-color: rgba(255, 255, 255, 0.5);
-$white: #fff;
-$black: #000;
+$max-width: 1290px;
+$padding-x: (
+  "sm": 1rem,
+  "lg": 2rem,
+);
 
-$text: ();
+$base-font-size: 16px;
+
+@function px-to-rem($px) {
+  @return ($px / $base-font-size) * 1rem;
+}
+
+$font-size: (
+  "xs": px-to-rem(10px),
+  "sm": px-to-rem(12px),
+  "basic": px-to-rem(14px),
+  "md": px-to-rem(16px),
+  "lg": px-to-rem(18px),
+  "xl": px-to-rem(20px),
+  "2xl": px-to-rem(22px),
+  "3xl": px-to-rem(24px),
+  "4xl": px-to-rem(26px),
+  "5xl": px-to-rem(28px),
+  "6xl": px-to-rem(30px),
+  "7xl": px-to-rem(32px),
+  "8xl": px-to-rem(34px),
+  "9xl": px-to-rem(36px),
+  "10xl": px-to-rem(38px),
+  "11xl": px-to-rem(40px),
+);
+
+$border-radius: (
+  "xs": px-to-rem(4px),
+  "sm": px-to-rem(6px),
+  "md": px-to-rem(8px),
+  "lg": px-to-rem(10px),
+);
+
+$text: (
+  "light": (
+    "primary": #ed1b24,
+    "secondary": #3a3a3c,
+  ),
+  "dark": (
+    "primary": #ed1b24,
+    "secondary": #3a3a3c,
+  ),
+);
+
+$background: (
+  "light": (
+    "primary": #ffffff,
+    "secondary": #efefef,
+    "tertiary": #e0e0e0,
+    "dark": #454545,
+    "footerDark": #212529,
+  ),
+  "dark": (
+    "primary": #ffffff,
+    "secondary": #efefef,
+    "tertiary": #e0e0e0,
+    "dark": #454545,
+    "footerDark": #212529,
+  ),
+);
+
+$box-shadow: (
+  "light": (
+    1: 0 4px 10px 0 rgba(0, 0, 0, 0.12),
+    2: 0 0 10px 0 rgba(0, 0, 0, 0.12),
+    3: 0 6px 6px 0 rgba(0, 0, 0, 0.08),
+    4: 0 3px 6px 0 rgba(0, 0, 0, 0.08),
+    5: 0 4px 22px 0 rgba(0, 0, 0, 0.08),
+  ),
+  "dark": (),
+);
+
+$black: #000000;
+$white: #ffffff;

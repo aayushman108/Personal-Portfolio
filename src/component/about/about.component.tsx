@@ -1,3 +1,11 @@
-export function About() {
-  return <div className="about-container">About</div>;
+interface IProps {
+  id: string;
+}
+
+export function About(props: IProps) {
+  return (
+    <div className="about-container" id={props.id}>
+      About
+    </div>
+  );
 }
