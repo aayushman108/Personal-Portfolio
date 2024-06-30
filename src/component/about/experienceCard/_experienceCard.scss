@@ -1,0 +1,59 @@
+.experience-card-container {
+  color: map-get($text, light, secondary);
+  font-size: map-get($font-size, md);
+  // border: 1px solid red;
+  padding: 1rem;
+  border-radius: map-get($border-radius, md);
+  background-color: map-get($background, light, secondary);
+  // box-shadow: map-get($box-shadow, light, 5);
+  .experience-card {
+    &_designation {
+      margin: 0;
+      font-size: map-get($font-size, "2xl");
+      margin-bottom: 0.5rem;
+    }
+    &_company {
+      margin: 0;
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+    &_date-location {
+      margin: 0;
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      .experience-card-date {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      .experience-card-location {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+    }
+    &_link {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: blue;
+    }
+    &_list {
+      //   border: 1px solid blue;
+      padding: 0 1rem;
+      margin: 0;
+      li {
+        margin-bottom: 5px;
+        font-weight: 500;
+        & > a {
+          color: blue;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}

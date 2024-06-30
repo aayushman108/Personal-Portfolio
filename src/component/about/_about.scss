@@ -1,5 +1,61 @@
+@import "./basicDetails/basicDetails";
+@import "./professionalDetails/professionalDetails";
+@import "./experienceCard/experienceCard";
+@import "./experienceDetails/experienceDetails";
+
 .about-container {
+  margin-top: 5rem;
   width: 100%;
-  height: 70vh;
+  height: calc(100vh - 5rem);
   border: 1px solid rgb(0, 106, 255);
+  .about {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    .carousel-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      .carousel {
+        display: flex;
+        flex-direction: row;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+        &_item {
+          flex-grow: 0;
+          flex-shrink: 0;
+          box-sizing: border-box;
+          .inner {
+            height: 100%;
+            width: 100%;
+            border: 1px solid red;
+          }
+        }
+      }
+      .button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        & > .icon {
+          font-size: 40px;
+        }
+        &--prev {
+          position: absolute;
+          top: 50%;
+          left: 1rem;
+          transform: translateY(-50%);
+        }
+        &--next {
+          position: absolute;
+          position: absolute;
+          top: 50%;
+          right: 1rem;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
 }
