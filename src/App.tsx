@@ -55,7 +55,7 @@ function App() {
       <About id="about" />
       <Portfolio id="portfolio" />
       <Contact id="contact" />
-      <Footer />
+      <Footer scrollToSection={scrollToSection} />
     </div>
   );
 }

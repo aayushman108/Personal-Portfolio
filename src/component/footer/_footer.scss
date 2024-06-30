@@ -1,5 +1,71 @@
 .footer-container {
   width: 100%;
-  height: 70vh;
-  border: 1px solid rgb(0, 255, 55);
+  height: 20rem;
+  background-color: map-get($background, light, footerDark);
+  color: white;
+  .footer {
+    position: relative;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 2rem 0;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    &_contact {
+      background-color: map-get($background, light, primary);
+      border-radius: map-get($border-radius, md);
+      box-shadow: map-get($box-shadow, light, 2);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: fit-content;
+      @include d-flex(column, center, center);
+      gap: 3rem;
+      padding: 2rem 1rem;
+      color: map-get($text, light, secondary);
+
+      &_general {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        & > .general-item {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: map-get($font-size, "lg");
+          font-weight: 600;
+        }
+      }
+      &_social {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        & > .social-icon {
+          font-size: 32px;
+        }
+      }
+    }
+    &_nav-links {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .footer-logo {
+      }
+      .nav-links {
+        color: $white;
+        list-style-type: none;
+        display: flex;
+        gap: 2rem;
+        &_item {
+          font-size: map-get($font-size, "xl");
+          font-weight: 600;
+        }
+      }
+    }
+  }
 }
