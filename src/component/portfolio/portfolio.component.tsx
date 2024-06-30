@@ -1,3 +1,6 @@
+import { PortfolioCard } from "../portfolioCard";
+import { PORTFOLIO_LIST } from "./contant";
+
 interface IProps {
   id: string;
 }
@@ -5,7 +8,14 @@ interface IProps {
 export function Portfolio(props: IProps) {
   return (
     <div className="portfolio-container" id={props.id}>
-      Portfolio
+      <div className="portfolio">
+        <h2 className="portfolio_heading">PORTFOLIO</h2>
+        <ul className="portfolio_list">
+          {PORTFOLIO_LIST.map((item) => (
+            <PortfolioCard item={item} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

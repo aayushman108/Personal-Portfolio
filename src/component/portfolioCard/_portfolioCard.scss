@@ -1,0 +1,58 @@
+.portfolio-card-container {
+  // border: 1px solid red;
+  box-shadow: map-get($box-shadow, light, 2);
+  border-radius: map-get($border-radius, md);
+  overflow: hidden;
+  background-color: map-get($background, light, primary);
+  .portfolio-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    &:hover {
+      .portfolio-card_details {
+        opacity: 1;
+      }
+      .portfolio-card_main {
+        opacity: 0.1;
+      }
+    }
+    &_details {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      @include d-flex(column, center, center);
+      gap: 1rem;
+      padding: 1rem;
+      background-color: map-get($text, light, primary);
+      color: white;
+      &_title {
+      }
+      &_description {
+      }
+    }
+    &_main {
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+      &_image {
+        width: 100%;
+        height: calc(100% - 3rem);
+        background-color: map-get($background, light, primary);
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      &_title {
+        @include d-flex();
+        height: 3rem;
+        border-top: 1px solid map-get($background, light, tertiary);
+        background-color: map-get($background, light, primary);
+      }
+    }
+  }
+}
