@@ -1,7 +1,10 @@
 .contact-container {
   width: 100%;
   background-color: map-get($background, light, tertiary);
-  padding: 4rem 0;
+  padding: 4rem map-get($padding-x, lg);
+  @include responsive-for($md) {
+    padding: 4rem map-get($padding-x, sm);
+  }
   .contact {
     max-width: $max-width;
     width: 100%;
@@ -10,6 +13,9 @@
     @include d-flex();
     flex-direction: column;
     gap: 3rem;
+    @include responsive-for($md) {
+      padding-bottom: 8rem;
+    }
     &_heading {
       font-size: map-get($font-size, "4xl");
       font-weight: 900;
@@ -34,8 +40,6 @@
     &_form {
       max-width: 500px;
       width: 100%;
-      padding: 2rem 1.5rem;
-      // border: 1px solid map-get($text, light, secondary);
       border-radius: map-get($border-radius, md);
       .form-field {
         margin-bottom: 1rem;

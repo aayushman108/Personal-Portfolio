@@ -1,14 +1,17 @@
 .professional-details-container {
   width: 100%;
   height: 100%;
+  padding: 2rem map-get($padding-x, lg);
+  @include responsive-for($md) {
+    padding: 2rem map-get($padding-x, sm);
+  }
   .professional-details {
     max-width: $max-width;
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    padding: 2rem 0;
+    @include d-flex();
     &_education {
-      //   border: 1px solid red;
       margin-bottom: 2rem;
       &_heading {
         font-size: map-get($font-size, "md");
@@ -70,7 +73,7 @@
       }
       &_content {
         & > .short-description {
-          margin-bottom: 2rem;
+          margin-bottom: 1rem;
           width: 70%;
           line-height: 1.5;
         }
@@ -80,7 +83,17 @@
           grid-template-columns: repeat(6, 1fr);
           gap: 1.5rem;
           width: 80%;
-          //   border: 1px solid red;
+          @include responsive-for($lg) {
+            width: 100%;
+            grid-template-columns: repeat(6, 1fr);
+          }
+          @include responsive-for($md) {
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+          }
+          @include responsive-for($mobile) {
+            grid-template-columns: repeat(5, 1fr);
+          }
           &_item {
             font-size: map-get($font-size, lg);
             font-weight: 700;
@@ -91,6 +104,10 @@
               .skills-list_item_title {
                 height: fit-content;
                 padding: 0.8rem 0.5rem;
+                @include responsive-for($mobile) {
+                  height: 0;
+                  padding: 0;
+                }
               }
             }
             &_image {

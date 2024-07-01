@@ -1,21 +1,35 @@
 .basic-details-container {
   width: 100%;
   height: 100%;
+  padding: 2rem map-get($padding-x, lg);
+  @include responsive-for($md) {
+    padding: 2rem map-get($padding-x, sm);
+  }
   .basic-details {
     max-width: $max-width;
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    // border: 1px solid red;
     display: grid;
     align-content: center;
     justify-content: space-between;
     grid-template-columns: 35% 55%;
+    @include responsive-for($md) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      justify-content: center;
+    }
     &_image {
       border-radius: 92% 99% 41% 100% / 91% 100% 65% 98%;
       width: 100%;
       aspect-ratio: 0.9;
       position: relative;
+      @include responsive-for($md) {
+        width: 30%;
+      }
+      @include responsive-for($mobile) {
+        width: 50%;
+      }
       &::before {
         z-index: -1;
         content: "";
@@ -26,6 +40,10 @@
         left: 3rem;
         bottom: 2rem;
         background-color: lighten(map-get($text, light, primary), 50%);
+        @include responsive-for($md) {
+          left: 2rem;
+          bottom: 1rem;
+        }
       }
       img {
         width: 100%;
@@ -47,6 +65,9 @@
         font-weight: 700;
         color: map-get($text, light, secondary);
         margin-bottom: 1rem;
+        @include responsive-for($md) {
+          font-size: map-get($font-size, "7xl");
+        }
       }
       &_description {
         font-size: map-get($font-size, "lg");
@@ -71,5 +92,11 @@
   align-items: center;
   gap: 1rem;
   .arrow-icon {
+  }
+  @include responsive-for($md) {
+    margin-top: 2rem;
+  }
+  @include responsive-for($mobile) {
+    margin-top: 1.5rem;
   }
 }
