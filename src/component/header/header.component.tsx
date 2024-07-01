@@ -31,21 +31,25 @@ export function Header(props: IProps) {
   return (
     <header className="header-container">
       {showSideNav && (
-        <div className="sidenav-backdrop" onClick={handleHamburgerClick}></div>
+        <div
+          className="sidenav-backdrop"
+          onClick={handleHamburgerClick}
+          aria-hidden="true"
+        ></div>
       )}
       <SideNav
         show={showSideNav}
         setShow={setShowSideNav}
         scrollToSection={props.scrollToSection}
       />
-      <nav className="header">
+      <nav className="header" role="navigation" aria-label="Main navigation">
         <h1
           className="header_logo"
           onClick={() => props.scrollToSection("header")}
         >
           Aayushman
         </h1>
-        <ul className="header_nav-links">
+        <ul className="header_nav-links" role="menu">
           {NAV_LINKS.map((item) => (
             <li
               key={item.id}
@@ -56,12 +60,14 @@ export function Header(props: IProps) {
               className={`header_nav-links_item ${
                 activeSection === item.id ? "active" : ""
               }`}
+              aria-current={activeSection === item.id ? "true" : undefined}
+              role="menuitem"
             >
               {item.title}
             </li>
           ))}
         </ul>
-        <ul className="header_contact">
+        <ul className="header_contact" aria-label="Contact details">
           {BASIC_CONTACT_DETAILS.map((item) => (
             <li key={item.id} className="header_contact_item">
               <a
@@ -71,6 +77,7 @@ export function Header(props: IProps) {
                     ? `mailto:${item.content}`
                     : `tel:${item.content}`
                 }
+                aria-label={item.id === "email" ? "Email link" : "Phone link"}
               >
                 {item.icon}
                 {item.content}
@@ -79,7 +86,12 @@ export function Header(props: IProps) {
           ))}
         </ul>
         <div className="header_hamburger">
-          <GiHamburgerMenu size={25} onClick={handleHamburgerClick} />
+          <GiHamburgerMenu
+            size={25}
+            onClick={handleHamburgerClick}
+            aria-label="Toggle navigation"
+            aria-expanded={showSideNav}
+          />
         </div>
       </nav>
     </header>

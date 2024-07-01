@@ -7,15 +7,23 @@ interface IProps {
 
 export function Portfolio(props: IProps) {
   return (
-    <div className="portfolio-container" id={props.id}>
+    <section
+      className="portfolio-container"
+      id={props.id}
+      aria-labelledby="portfolio-heading"
+    >
       <div className="portfolio">
-        <h2 className="portfolio_heading">PORTFOLIO</h2>
-        <ul className="portfolio_list">
+        <h2 className="portfolio_heading" id="portfolio-heading">
+          PORTFOLIO
+        </h2>
+        <ul className="portfolio_list" aria-label="Portfolio projects">
           {PORTFOLIO_LIST.map((item) => (
-            <PortfolioCard item={item} />
+            <li key={item.id} className="portfolio_list_item">
+              <PortfolioCard item={item} />
+            </li>
           ))}
         </ul>
       </div>
-    </div>
+    </section>
   );
 }

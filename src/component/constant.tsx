@@ -5,17 +5,17 @@ import { MdEmail } from "react-icons/md";
 
 export const SOCIAL_LINKS = [
   {
-    id: 1,
+    id: "linked-in",
     icon: <FaLinkedin />,
     link: "https://www.linkedin.com/in/aayushman-sharma-a8abbb277",
   },
   {
-    id: 2,
+    id: "facebook",
     icon: <FaFacebookSquare />,
     link: "https://www.facebook.com/aayush.maan.9461",
   },
   {
-    id: 3,
+    id: "instagram",
     icon: <BsInstagram />,
     link: "https://www.instagram.com/aayushmaan912",
   },

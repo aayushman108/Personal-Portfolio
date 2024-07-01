@@ -9,11 +9,16 @@ interface IProps {
 export function Footer(props: IProps) {
   const dispatch = useDispatch();
   return (
-    <div className="footer-container">
+    <footer className="footer-container" aria-label="Footer">
       <div className="footer">
         <div className="footer_contact">
-          <h2 className="footer_contact_heading">Get In Touch</h2>
-          <ul className="footer_contact_general">
+          <h2 className="footer_contact_heading" id="contact-heading">
+            Get In Touch
+          </h2>
+          <ul
+            className="footer_contact_general"
+            aria-labelledby="contact-heading"
+          >
             {BASIC_CONTACT_DETAILS.map((item) => (
               <li className="general-item">
                 <a
@@ -23,6 +28,7 @@ export function Footer(props: IProps) {
                       : `tel:${item.content}`
                   }
                   className="general-item_link"
+                  aria-label={`${item.id}: ${item.content}`}
                 >
                   {item.icon}
                   {item.content}
@@ -30,10 +36,16 @@ export function Footer(props: IProps) {
               </li>
             ))}
           </ul>
-          <ul className="footer_contact_social">
+          <ul className="footer_contact_social" aria-label="Social media links">
             {SOCIAL_LINKS.map((item) => (
               <li key={item.id} className="social-item">
-                <a href={item.link} className="social-item_icon">
+                <a
+                  href={item.link}
+                  className="social-item_icon"
+                  aria-label={`${item.id} profile`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {item.icon}
                 </a>
               </li>
@@ -42,22 +54,29 @@ export function Footer(props: IProps) {
         </div>
         <div className="footer_nav-links">
           <h1 className="footer-logo">Aayushman</h1>
-          <ul className="nav-links">
-            {NAV_LINKS.map((item) => (
-              <li
-                key={item.id}
-                onClick={() => {
-                  props.scrollToSection(item.id);
-                  dispatch(setActiveSection(item.id));
-                }}
-                className="nav-links_item"
-              >
-                {item.title}
-              </li>
-            ))}
-          </ul>
+          <nav className="nav-links" aria-label="Footer navigation">
+            <ul className="nav-links_list">
+              {NAV_LINKS.map((item) => (
+                <li
+                  key={item.id}
+                  onClick={() => {
+                    props.scrollToSection(item.id);
+                    dispatch(setActiveSection(item.id));
+                  }}
+                  className="nav-link-item"
+                >
+                  <button
+                    className="nav-link-item_button"
+                    aria-label={`Go to ${item.title} section`}
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

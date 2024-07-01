@@ -1,11 +1,11 @@
 .experience-card-container {
   color: map-get($text, light, secondary);
   font-size: map-get($font-size, md);
-  // border: 1px solid red;
   padding: 1rem;
   border-radius: map-get($border-radius, md);
   background-color: map-get($background, light, secondary);
-  // box-shadow: map-get($box-shadow, light, 5);
+  width: 100%;
+  height: 100%;
   .experience-card {
     &_designation {
       margin: 0;

@@ -85,21 +85,27 @@
         gap: 1.5rem;
       }
       @include responsive-for($mobile) {
-        width: 30rem;
       }
       .footer-logo {
       }
       .nav-links {
-        color: $white;
-        list-style-type: none;
-        display: flex;
-        gap: 2rem;
-        &_item {
-          font-size: map-get($font-size, "xl");
-          font-weight: 600;
-          &:hover {
-            color: map-get($text, light, primary);
-            cursor: pointer;
+        &_list {
+          color: $white;
+          list-style-type: none;
+          display: flex;
+          gap: 2rem;
+          .nav-link-item {
+            &_button {
+              color: $white;
+              border: none;
+              background-color: transparent;
+              font-size: map-get($font-size, "xl");
+              font-weight: 600;
+              &:hover {
+                color: map-get($text, light, primary);
+                cursor: pointer;
+              }
+            }
           }
         }
       }

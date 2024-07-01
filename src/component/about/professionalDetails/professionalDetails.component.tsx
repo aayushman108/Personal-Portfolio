@@ -8,7 +8,10 @@ interface IProps {
 }
 export function ProfessionalDetails(props: IProps) {
   return (
-    <div className="professional-details-container">
+    <div
+      className="professional-details-container"
+      aria-labelledby="skills-heading"
+    >
       <div className="professional-details">
         {/* <div className="professional-details_education">
           <h2 className="professional-details_education_heading item1">
@@ -31,7 +34,12 @@ export function ProfessionalDetails(props: IProps) {
         </div> */}
 
         <div className="professional-details_skills item2">
-          <h2 className="professional-details_skills_heading">SKILLS</h2>
+          <h2
+            id="skills-heading"
+            className="professional-details_skills_heading"
+          >
+            SKILLS
+          </h2>
           <div className="professional-details_skills_content">
             <p className="short-description">
               As a dedicated Associate Software Engineer, I have developed a
@@ -39,20 +47,24 @@ export function ProfessionalDetails(props: IProps) {
               in the tech world. Here&apos;s a comprehensive list of my
               technical skills:
             </p>
-            <ul className="skills-list">
+            <ul className="skills-list" aria-label="List of technical skills">
               {SKILLS.map((item) => (
                 <li key={item.id} className="skills-list_item">
                   <figure className="skills-list_item_image">
-                    <img src={item.icon} alt={item.skill} />
+                    <img src={item.icon} alt="" aria-hidden="true" />
                   </figure>
                   <h4 className="skills-list_item_title">{item.skill}</h4>
                 </li>
               ))}
             </ul>
           </div>
-          <button className="learn-more-btn" onClick={props.handleNext}>
+          <button
+            className="learn-more-btn"
+            onClick={props.handleNext}
+            aria-label="See my experience"
+          >
             SEE MY EXPERIENCE{" "}
-            <span className="arrow-icon">
+            <span className="arrow-icon" aria-hidden="true">
               <HiArrowLongRight size={20} />
             </span>
           </button>

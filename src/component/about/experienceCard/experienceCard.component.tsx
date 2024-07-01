@@ -15,27 +15,47 @@ interface Props {
 }
 export function ExperienceCard(props: Props) {
   return (
-    <div className="experience-card-container">
+    <article
+      className="experience-card-container"
+      aria-labelledby={`job-title-${props.item.id}`}
+    >
       <div className="experience-card">
-        <h3 className="experience-card_designation">
+        <h3
+          id={`job-title-${props.item.id}`}
+          className="experience-card_designation"
+        >
           {props.item.designation}
         </h3>
-        <h4 className="experience-card_company">{props.item.company}</h4>
+        <h4
+          id={`company-name-${props.item.id}`}
+          className="experience-card_company"
+        >
+          {props.item.company}
+        </h4>
         <div className="experience-card_date-location">
-          <div className="experience-card-date">
-            <MdOutlineDateRange />
+          <div
+            className="experience-card-date"
+            aria-label={`Employment period: ${props.item.date}`}
+          >
+            <MdOutlineDateRange aria-hidden="true" />
             {props.item.date}
           </div>
-          <div className="experience-card-location">
-            <FaLocationDot />
+          <div
+            className="experience-card-location"
+            aria-label={`Location: ${props.item.location}`}
+          >
+            <FaLocationDot aria-hidden="true" />
             {props.item.location}
           </div>
         </div>
         <a className="experience-card_link" href={props.item.link}>
-          <FaLink />
+          <FaLink aria-hidden="true" />
           {props.item.link}
         </a>
-        <ul className="experience-card_list">
+        <ul
+          className="experience-card_list"
+          aria-label="Job responsibilities and achievements"
+        >
           {props.item.content.map((item) => (
             <li key={item.id}>
               {item.text} {item.link && <a href={item.link}>~ {item.link}</a>}
@@ -43,6 +63,6 @@ export function ExperienceCard(props: Props) {
           ))}
         </ul>
       </div>
-    </div>
+    </article>
   );
 }
