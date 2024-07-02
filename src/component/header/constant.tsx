@@ -1,21 +1,16 @@
-import { FaMobileButton } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
+import { PiDownloadFill } from "react-icons/pi";
 
-export const BASIC_CONTACT_DETAILS = [
+export const DOWNLOAD_CV = [
   {
     id: "mobile number",
-    icon: <FaMobileButton size={16} />,
-    content: "9810478691",
-  },
-  {
-    id: "email",
-    icon: <MdEmail size={18} />,
-    content: "aayushmansharma108@gmail.com",
+    icon: <PiDownloadFill size={18} />,
+    content: "Download CV",
+    link: "https://drive.google.com/file/d/1zeNSSM01WQUqxEhk-ZUce6SSVm0blQ8Q/view?usp=sharing",
   },
 ];
 
 export const NAV_LINKS = [
-  // { id: "home", title: "Home" },
+  { id: "home", title: "Home" },
   { id: "about", title: "About" },
   { id: "portfolio", title: "Portfolio" },
   { id: "contact", title: "Contact" },

@@ -52,7 +52,7 @@ export function ExperienceCard(props: Props) {
           <FaLink aria-hidden="true" />
           {props.item.link}
         </a>
-        <ul
+        {/* <ul
           className="experience-card_list"
           aria-label="Job responsibilities and achievements"
         >
@@ -61,7 +61,7 @@ export function ExperienceCard(props: Props) {
               {item.text} {item.link && <a href={item.link}>~ {item.link}</a>}
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
     </article>
   );

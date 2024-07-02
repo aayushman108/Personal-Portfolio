@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BASIC_CONTACT_DETAILS, NAV_LINKS } from "./constant";
+import { DOWNLOAD_CV, NAV_LINKS } from "./constant";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { SideNav } from "../sideNav";
 import { useDispatch } from "react-redux";
@@ -67,17 +67,13 @@ export function Header(props: IProps) {
             </li>
           ))}
         </ul>
-        <ul className="header_contact" aria-label="Contact details">
-          {BASIC_CONTACT_DETAILS.map((item) => (
-            <li key={item.id} className="header_contact_item">
+        <ul className="header_cv" aria-label="Aayushman Resume">
+          {DOWNLOAD_CV.map((item) => (
+            <li key={item.id} className="header_cv_item">
               <a
                 className="item-link"
-                href={
-                  item.id === "email"
-                    ? `mailto:${item.content}`
-                    : `tel:${item.content}`
-                }
-                aria-label={item.id === "email" ? "Email link" : "Phone link"}
+                href={item.link}
+                aria-label="Download CV"
               >
                 {item.icon}
                 {item.content}

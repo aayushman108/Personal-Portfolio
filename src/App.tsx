@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { About, Contact, Footer, Header, Portfolio } from "./component";
+import { About, Contact, Footer, Header, Home, Portfolio } from "./component";
 import { setActiveSection } from "./store/slices/main.slice";
 import { useAppDispatch } from "./store/hook.store";
 
 function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(setActiveSection("about"));
+    dispatch(setActiveSection("home"));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "portfolio", "contact"];
+      const sections = ["home", "about", "portfolio", "contact"];
 
       const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
@@ -52,6 +52,7 @@ function App() {
   return (
     <div className="App">
       <Header scrollToSection={scrollToSection} />
+      <Home id="home" />
       <About id="about" />
       <Portfolio id="portfolio" />
       <Contact id="contact" />

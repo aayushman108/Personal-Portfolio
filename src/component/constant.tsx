@@ -1,4 +1,4 @@
-import { FaFacebookSquare, FaLinkedin } from "react-icons/fa";
+import { FaFacebookSquare, FaGithubSquare, FaLinkedin } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { FaMobileButton } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
@@ -9,6 +9,12 @@ export const SOCIAL_LINKS = [
     icon: <FaLinkedin />,
     link: "https://www.linkedin.com/in/aayushman-sharma-a8abbb277",
   },
+  {
+    id: "github",
+    icon: <FaGithubSquare />,
+    link: "https://github.com/aayushman108",
+  },
+
   {
     id: "facebook",
     icon: <FaFacebookSquare />,

@@ -1,0 +1,98 @@
+.home-container {
+  margin-top: 5rem;
+  height: 100%;
+  background-color: map-get($background, light, secondary); //light
+  background-color: map-get($background, dark, secondary); //dark
+  color: map-get($text, dark, tertiary); //dark
+  .home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    position: relative;
+    @include responsive-for($lg) {
+      grid-template-columns: 1fr;
+    }
+    &_intro-wrapper {
+      @include d-flex(column, center, center);
+      height: 100%;
+      width: 100%;
+      .home-intro {
+        padding: map-get($padding-x, lg);
+        font-weight: 600;
+        & > .greet {
+          color: map-get($text, light, primary);
+          font-size: map-get($font-size, "6xl");
+          letter-spacing: 3px;
+        }
+        & > .intro {
+          color: map-get($text, dark, secondary);
+          // font-size: map-get($font-size, "11xl");
+          font-size: 60px;
+          font-family: "Dancing Script", cursive;
+          font-optical-sizing: auto;
+          font-weight: 900;
+          font-style: normal;
+          margin-bottom: 2rem;
+        }
+        & > .passion {
+          font-size: map-get($font-size, "3xl");
+          span {
+            font-size: map-get($font-size, "11xl");
+            color: map-get($text, light, primary);
+            // font-family: "Dancing Script", cursive;
+            // font-optical-sizing: auto;
+            // font-weight: 900;
+            // font-style: normal;
+          }
+        }
+      }
+    }
+
+    &_image-links {
+      // border: 1px solid blue;
+      width: 100%;
+      @include d-flex();
+      .hero-image {
+        // border: 1px solid red;
+        width: 80%;
+        @include responsive-for($xlg) {
+          width: 90%;
+        }
+        @include responsive-for($lg) {
+          width: 50%;
+        }
+        @include responsive-for($md) {
+          width: 60%;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    &_social {
+      position: absolute;
+      top: 50%;
+      right: 2rem;
+      transform: translate(0, -50%);
+      list-style-type: none;
+      @include d-flex(column, center, center);
+      gap: 10px;
+      .social-item {
+        border: 1px solid map-get($background, dark, darkTransparent, 2);
+        border-radius: map-get($border-radius, xs);
+        width: 48px;
+        height: 48px;
+        @include d-flex();
+        &_icon {
+          @include d-flex();
+          // padding: 0;
+          font-size: 30px;
+          color: map-get($text, light, primary);
+        }
+      }
+    }
+  }
+}

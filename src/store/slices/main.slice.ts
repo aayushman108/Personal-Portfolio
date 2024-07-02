@@ -6,7 +6,7 @@ interface IState {
 }
 
 const initialState: IState = {
-  activeSection: "about",
+  activeSection: "home",
 };
 
 export const mainSlice = createSlice({

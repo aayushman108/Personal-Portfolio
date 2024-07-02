@@ -11,7 +11,7 @@ interface IProps {
 }
 
 export function About(props: IProps) {
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [autoSlide, setAutoSlide] = useState<boolean>(false);
 
   const itemCount = ABOUT_ME.length;

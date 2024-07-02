@@ -138,11 +138,14 @@ export function Contact(props: IProps) {
               Message
             </label>
             <textarea
+              rows={5}
               id="message"
               value={formData.message}
               name="message"
               placeholder="Enter message *"
-              className={`form-field_input ${errors?.message ? "error" : ""}`}
+              className={`form-field_input ${
+                errors?.message ? "error" : ""
+              } textarea`}
               onChange={handleChange}
               aria-required="true"
               aria-invalid={errors?.message ? "true" : "false"}

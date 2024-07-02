@@ -5,8 +5,10 @@
   left: 0;
   width: 100%;
   padding: 0 map-get($padding-x, "lg");
-  background-color: map-get($background, "light", "primary");
-  color: map-get($text, "light", "secondary");
+  background-color: map-get($background, "light", "primary"); //light
+  background-color: map-get($background, "dark", "primary"); //dark
+  color: map-get($text, "light", "secondary"); //light
+  color: map-get($text, "dark", "tertiary"); //dark
   @include responsive-for($md) {
     padding: 0 map-get($padding-x, "sm");
   }
@@ -16,8 +18,15 @@
     width: 100%;
     margin: 0 auto;
     @include d-flex(row, space-between, center);
+    @include responsive-for($md) {
+      gap: 2rem;
+    }
     &_logo {
-      font-size: map-get($font-size, "6xl");
+      font-size: map-get($font-size, "10xl");
+      font-family: "Dancing Script", cursive;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
     }
     &_nav-links {
       list-style-type: none;
@@ -56,19 +65,19 @@
       display: none;
       @include responsive-for($md) {
         display: unset;
+        order: 2;
+        margin-left: auto;
       }
     }
-    &_contact {
+    &_cv {
       list-style-type: none;
-      display: flex;
       border: 1px solid lighten(map-get($text, "light", "secondary"), 50%);
       border-radius: map-get($border-radius, "sm");
-      @include responsive-for($lg) {
-        display: none;
+      @include responsive-for($md) {
+        order: 3;
       }
       &_item {
         &:first-child {
-          border-right: 1px solid black;
         }
         .item-link {
           text-decoration: none;
@@ -76,7 +85,8 @@
           gap: 5px;
           padding: 0.8rem 1rem;
           font-size: map-get($font-size, "md");
-          color: map-get($text, "light", "secondary");
+          color: map-get($text, "light", "secondary"); //light
+          color: map-get($text, "dark", "tertiary"); //dark
         }
       }
     }

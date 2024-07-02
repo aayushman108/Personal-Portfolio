@@ -1,3 +1,4 @@
+import { BiSolidLeftArrow } from "react-icons/bi";
 import { HiArrowLongRight } from "react-icons/hi2";
 
 interface IProps {
@@ -12,6 +13,7 @@ export function BasicDetails(props: IProps) {
       <div className="basic-details">
         <figure className="basic-details_image">
           <img src="/images/aayushmanSharma.jpg" alt="..." />
+          <BiSolidLeftArrow aria-hidden="true" className="basic-arrow-icon" />
         </figure>
         <div className="basic-details_content">
           <h2 id="about-me-heading" className="basic-details_content_heading">

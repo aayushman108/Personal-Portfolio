@@ -2,6 +2,7 @@
   width: 100%;
   height: 100%;
   padding: 2rem map-get($padding-x, lg);
+  background-color: map-get($background, dark, tertiary); //dark
   @include responsive-for($md) {
     padding: 2rem map-get($padding-x, sm);
   }
@@ -20,50 +21,73 @@
       justify-content: center;
     }
     &_image {
-      border-radius: 92% 99% 41% 100% / 91% 100% 65% 98%;
       width: 100%;
-      aspect-ratio: 0.9;
+      aspect-ratio: 0.85;
       position: relative;
+      perspective: 1000px;
+      &:hover img {
+        transform: rotateX(5deg) rotateY(5deg);
+      }
+      &::before {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        width: 25%;
+        aspect-ratio: 1;
+        border: 6px solid map-get($background, dark, primary); //light
+        border: 6px solid map-get($text, light, primary); //dark
+        top: 0;
+        right: 0;
+        transform: translate(25%, -25%);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 10%;
+        aspect-ratio: 0.7;
+        background-color: map-get($background, dark, primary); //light
+        background-color: map-get($text, light, primary); //dark
+        bottom: 0;
+        left: 5%;
+        transform: translate(25%, 25%);
+      }
+      .basic-arrow-icon {
+        position: absolute;
+        top: 25%;
+        right: -1.2rem;
+        font-size: 4rem;
+        color: $white; //light
+        color: map-get($background, dark, tertiary); //dark
+      }
       @include responsive-for($md) {
         width: 30%;
       }
       @include responsive-for($mobile) {
         width: 50%;
       }
-      &::before {
-        z-index: -1;
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 92% 99% 41% 100% / 91% 100% 65% 98%;
-        left: 3rem;
-        bottom: 2rem;
-        background-color: lighten(map-get($text, light, primary), 50%);
-        @include responsive-for($md) {
-          left: 2rem;
-          bottom: 1rem;
-        }
-      }
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 92% 99% 41% 100% / 91% 100% 65% 98%;
+        border-radius: map-get($border-radius, md);
+        transition: transform 0.3s ease;
+        transform-style: preserve-3d;
       }
     }
     &_content {
-      // border: 1px solid red;
       &_heading {
-        font-size: map-get($font-size, "md");
-        font-weight: 900;
-        color: map-get($text, light, primary);
+        font-size: map-get($font-size, "lg");
+        font-family: "Baskervville SC", serif;
+        font-weight: 600;
+        color: map-get($text, light, primary); //light
+        color: map-get($text, dark, secondary); //light
         margin-bottom: 5px;
       }
       &_name {
         font-size: map-get($font-size, "11xl");
         font-weight: 700;
-        color: map-get($text, light, secondary);
+        color: map-get($text, light, secondary); //light
+        color: map-get($text, dark, tertiary); //dark
         margin-bottom: 1rem;
         @include responsive-for($md) {
           font-size: map-get($font-size, "7xl");
@@ -72,7 +96,8 @@
       &_description {
         font-size: map-get($font-size, "lg");
         font-weight: 500;
-        color: map-get($text, light, secondary);
+        color: map-get($text, light, secondary); //light
+        color: map-get($text, dark, tertiary); //dark
         line-height: 1.5;
       }
     }
@@ -91,8 +116,14 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    background-color: darken(map-get($text, light, primary), 5%);
+  }
   .arrow-icon {
   }
+
   @include responsive-for($md) {
     margin-top: 2rem;
   }

@@ -49,25 +49,28 @@ $text: (
     "secondary": #3a3a3c,
   ),
   "dark": (
-    "primary": #ed1b24,
-    "secondary": #3a3a3c,
+    "primary": #ffffff,
+    "secondary": #f7f8f9,
+    "tertiary": #f1f2f3,
   ),
 );
 
 $background: (
   "light": (
     "primary": #ffffff,
-    "secondary": #efefef,
-    "tertiary": #e0e0e0,
+    "secondary": #f7f8f9,
+    "tertiary": #efefef,
     "dark": #454545,
-    "footerDark": #212529,
+    "footerDark": #121180,
   ),
   "dark": (
-    "primary": #ffffff,
-    "secondary": #efefef,
-    "tertiary": #e0e0e0,
-    "dark": #454545,
-    "footerDark": #212529,
+    "primary": #0e0e5f,
+    "secondary": #191970,
+    "tertiary": #1c1c79,
+    "darkTransparent": (
+      1: rgba(255, 255, 255, 0.05),
+      2: rgba(255, 255, 255, 0.2),
+    ),
   ),
 );
 

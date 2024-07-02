@@ -1,6 +1,9 @@
 .portfolio-container {
   width: 100%;
   padding: 4rem map-get($padding-x, lg);
+  position: relative;
+  background-color: map-get($background, light, secondary); //light
+  background-color: map-get($background, dark, secondary); //dark
   @include responsive-for($md) {
     padding: 4rem map-get($padding-x, sm);
   }
@@ -14,8 +17,11 @@
     gap: 3rem;
     &_heading {
       font-size: map-get($font-size, "4xl");
-      font-weight: 900;
-      color: map-get($text, light, secondary);
+      // font-weight: 900;
+      font-family: "Baskervville SC", serif;
+      font-weight: 400;
+      color: map-get($text, light, secondary); //light
+      color: map-get($text, dark, secondary); //dark
       text-align: center;
       position: relative;
       display: inline-flex;

@@ -3,7 +3,12 @@
   box-shadow: map-get($box-shadow, light, 2);
   border-radius: map-get($border-radius, md);
   overflow: hidden;
-  background-color: map-get($background, light, primary);
+  background-color: map-get($background, light, primary); //light
+  background-color: rgba(255, 255, 255, 0.05); //dark
+  transition: all 0.5s ease;
+  // &:hover {
+  //   scale: 1.05;
+  // }
   .portfolio-card {
     width: 100%;
     height: 100%;
@@ -13,7 +18,7 @@
         opacity: 1;
       }
       .portfolio-card_main {
-        opacity: 0.1;
+        opacity: 0;
       }
     }
     &_details {
@@ -25,8 +30,10 @@
       @include d-flex(column, center, center);
       gap: 1rem;
       padding: 1rem;
-      background-color: map-get($text, light, primary);
-      color: white;
+      background-color: map-get($background, light, primary); //light
+      background-color: rgba(255, 255, 255, 0.05);
+      color: map-get($text, light, secondary); //light
+      color: map-get($text, dark, secondary); //dark
       &_title {
       }
       &_description {
@@ -40,7 +47,8 @@
       &_image {
         width: 100%;
         height: calc(100% - 3rem);
-        background-color: map-get($background, light, primary);
+        background-color: map-get($background, light, primary); //light
+        background-color: rgba(255, 255, 255, 0.05); //dark
         img {
           width: 100%;
           height: 100%;
@@ -50,8 +58,12 @@
       &_title {
         @include d-flex();
         height: 3rem;
-        border-top: 1px solid map-get($background, light, tertiary);
-        background-color: map-get($background, light, primary);
+        border-top: 1px solid map-get($background, light, tertiary); //light
+        border-top: 1px solid map-get($background, dark, tertiary); //dark
+        background-color: map-get($background, light, primary); //light
+        background-color: rgba(255, 255, 255, 0.05); //dark
+        color: map-get($text, light, secondary); //light
+        color: map-get($text, dark, tertiary); //dark
       }
     }
   }

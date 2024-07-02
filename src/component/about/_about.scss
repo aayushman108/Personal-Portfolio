@@ -4,10 +4,9 @@
 @import "./experienceDetails/experienceDetails";
 
 .about-container {
-  margin-top: 5rem;
+  // margin-top: 5rem;
   width: 100%;
   height: calc(100vh - 5rem);
-  border: 1px solid rgb(0, 106, 255);
   .about {
     width: 100%;
     display: flex;
@@ -31,7 +30,7 @@
           .inner {
             height: 100%;
             width: 100%;
-            border: 1px solid red;
+            // border: 1px solid red;
           }
         }
       }
@@ -39,8 +38,17 @@
         border: none;
         background-color: transparent;
         cursor: pointer;
+        color: map-get($text, light, primary); //light
+        color: map-get($text, dark, primary); //dark
+        &:disabled {
+          // color: lighten(map-get($text, light, primary), 50%);
+          color: map-get($text, dark, primary); //light
+          color: map-get($text, light, primary); //dark
+          cursor: not-allowed;
+        }
         & > .icon {
-          font-size: 45px;
+          font-size: 3rem;
+          // color: red;
         }
         &--prev {
           position: absolute;
