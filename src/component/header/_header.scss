@@ -5,10 +5,13 @@
   left: 0;
   width: 100%;
   padding: 0 map-get($padding-x, "lg");
-  background-color: map-get($background, "light", "primary"); //light
-  background-color: map-get($background, "dark", "primary"); //dark
-  color: map-get($text, "light", "secondary"); //light
-  color: map-get($text, "dark", "tertiary"); //dark
+  background-color: map-get($background, "light", "primary");
+  color: map-get($text, "light", "secondary");
+  transition: all 0.5s ease;
+  &.dark {
+    background-color: map-get($background, "dark", "primary");
+    color: map-get($text, "dark", "tertiary");
+  }
   @include responsive-for($md) {
     padding: 0 map-get($padding-x, "sm");
   }
@@ -33,7 +36,7 @@
       display: flex;
       gap: 2rem;
       font-weight: 600;
-      @include responsive-for($md) {
+      @include responsive-for($lg) {
         display: none;
       }
       &_item {
@@ -61,32 +64,77 @@
         }
       }
     }
-    &_hamburger {
-      display: none;
-      @include responsive-for($md) {
-        display: unset;
-        order: 2;
-        margin-left: auto;
-      }
-    }
-    &_cv {
-      list-style-type: none;
-      border: 1px solid lighten(map-get($text, "light", "secondary"), 50%);
-      border-radius: map-get($border-radius, "sm");
-      @include responsive-for($md) {
-        order: 3;
-      }
-      &_item {
-        &:first-child {
-        }
-        .item-link {
-          text-decoration: none;
+    .hamburger-cv-mode {
+      @include d-flex();
+      gap: 1.5rem;
+      .header_hamburger {
+        display: none;
+        @include responsive-for($lg) {
           @include d-flex();
-          gap: 5px;
-          padding: 0.8rem 1rem;
-          font-size: map-get($font-size, "md");
-          color: map-get($text, "light", "secondary"); //light
-          color: map-get($text, "dark", "tertiary"); //dark
+        }
+      }
+      .header_cv {
+        list-style-type: none;
+        border: 1px solid lighten(map-get($text, "light", "secondary"), 50%);
+        border-radius: map-get($border-radius, "sm");
+        @include responsive-for($md) {
+        }
+        &_item {
+          .item-link {
+            text-decoration: none;
+            @include d-flex();
+            gap: 5px;
+            padding: 0.8rem 1rem;
+            font-size: map-get($font-size, "md");
+            color: map-get($text, "light", "secondary");
+            transition: all 0.5s ease;
+            &.dark {
+              color: map-get($text, "dark", "tertiary");
+            }
+          }
+        }
+      }
+      .header_mode {
+        list-style-type: none;
+        @include d-flex(row, space-between, center);
+        border: 2px solid lighten(map-get($text, "light", "secondary"), 50%);
+        width: 70px;
+        gap: 10px;
+        padding: 5px;
+        border-radius: 20px;
+        transition: all 0.5s ease;
+        &.dark {
+          border: 2px solid map-get($background, dark, darkTransparent, 2);
+        }
+        &_item {
+          & > .mode-btn {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background-color: transparent;
+            color: map-get($text, light, secondary);
+            border: none;
+            @include d-flex();
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            &.dark {
+              color: map-get($text, dark, primary);
+            }
+            &.mode-btn--highlight {
+              color: map-get($text, light, primary);
+              transition: all 0.5s ease;
+              &.dark {
+                color: map-get($text, dark, primary);
+                background-color: map-get(
+                  $background,
+                  dark,
+                  darkTransparent,
+                  2
+                );
+              }
+            }
+          }
         }
       }
     }

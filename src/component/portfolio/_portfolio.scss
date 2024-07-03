@@ -2,8 +2,11 @@
   width: 100%;
   padding: 4rem map-get($padding-x, lg);
   position: relative;
-  background-color: map-get($background, light, secondary); //light
-  background-color: map-get($background, dark, secondary); //dark
+  background-color: map-get($background, light, secondary);
+  transition: all 0.5s ease;
+  &.dark {
+    background-color: map-get($background, dark, secondary);
+  }
   @include responsive-for($md) {
     padding: 4rem map-get($padding-x, sm);
   }
@@ -17,16 +20,18 @@
     gap: 3rem;
     &_heading {
       font-size: map-get($font-size, "4xl");
-      // font-weight: 900;
       font-family: "Baskervville SC", serif;
       font-weight: 400;
-      color: map-get($text, light, secondary); //light
-      color: map-get($text, dark, secondary); //dark
+      color: map-get($text, light, secondary);
       text-align: center;
       position: relative;
       display: inline-flex;
       justify-content: center;
       align-items: center;
+      transition: all 0.5s ease;
+      &.dark {
+        color: map-get($text, dark, secondary);
+      }
       &::after {
         content: "";
         position: absolute;

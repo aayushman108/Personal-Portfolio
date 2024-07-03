@@ -2,7 +2,11 @@
   width: 100%;
   height: 100%;
   padding: 2rem map-get($padding-x, lg);
-  background-color: map-get($background, dark, tertiary); //dark
+  background-color: map-get($background, light, primary);
+  transition: all 0.5s ease;
+  &.dark {
+    background-color: map-get($background, dark, tertiary);
+  }
   @include responsive-for($md) {
     padding: 2rem map-get($padding-x, sm);
   }
@@ -49,11 +53,10 @@
       }
     }
     &_experience {
-      //   border: 1px solid red;
       &_heading {
         font-size: map-get($font-size, "md");
         font-weight: 900;
-        color: map-get($text, light, primary); //
+        color: map-get($text, light, primary);
         margin-bottom: 5px;
       }
       &_content {
@@ -65,23 +68,27 @@
       }
     }
     &_skills {
-      //   border: 1px solid red;
       &_heading {
         font-size: map-get($font-size, "lg");
-        // font-weight: 900;
         font-family: "Baskervville SC", serif;
         font-weight: 600;
-        color: map-get($text, light, primary); //light
-        color: map-get($text, dark, secondary); //dark
+        color: map-get($text, light, primary);
         margin-bottom: 5px;
+        transition: all 0.5s ease;
+        &.dark {
+          color: map-get($text, dark, secondary);
+        }
       }
       &_content {
         & > .short-description {
           margin-bottom: 1.5rem;
           width: 70%;
           line-height: 1.5;
-          color: map-get($text, light, secondary); //light
-          color: map-get($text, dark, tertiary); //dark
+          color: map-get($text, light, secondary);
+          transition: all 0.5s ease;
+          &.dark {
+            color: map-get($text, dark, tertiary);
+          }
         }
         .skills-list {
           list-style-type: none;

@@ -1,6 +1,7 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineDateRange } from "react-icons/md";
 import { FaLink } from "react-icons/fa6";
+import { useAppSelector } from "../../../store/hook.store";
 
 interface Props {
   item: {
@@ -14,15 +15,18 @@ interface Props {
   };
 }
 export function ExperienceCard(props: Props) {
+  const { theme } = useAppSelector((state) => state.theme);
   return (
     <article
-      className="experience-card-container"
+      className={`experience-card-container ${theme === "dark" ? "dark" : ""}`}
       aria-labelledby={`job-title-${props.item.id}`}
     >
       <div className="experience-card">
         <h3
           id={`job-title-${props.item.id}`}
-          className="experience-card_designation"
+          className={`experience-card_designation ${
+            theme === "dark" ? "dark" : ""
+          }`}
         >
           {props.item.designation}
         </h3>
@@ -48,7 +52,10 @@ export function ExperienceCard(props: Props) {
             {props.item.location}
           </div>
         </div>
-        <a className="experience-card_link" href={props.item.link}>
+        <a
+          className={`experience-card_link ${theme === "dark" ? "dark" : ""}`}
+          href={props.item.link}
+        >
           <FaLink aria-hidden="true" />
           {props.item.link}
         </a>

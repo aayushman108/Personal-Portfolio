@@ -1,10 +1,14 @@
+import { useAppSelector } from "../../../store/hook.store";
 import { EXPERIENCE } from "../constant";
 import { ExperienceCard } from "../experienceCard";
 
 export function ExperienceDetails() {
+  const { theme } = useAppSelector((state) => state.theme);
   return (
     <section
-      className="experience-details-container"
+      className={`experience-details-container ${
+        theme === "dark" ? "dark" : ""
+      }`}
       aria-labelledby="experience-heading"
     >
       <div className="experience-details">
@@ -14,7 +18,9 @@ export function ExperienceDetails() {
         <div className="experience-details-content">
           <h2
             id="experience-heading"
-            className="experience-details_content_heading"
+            className={`experience-details_content_heading ${
+              theme === "dark" ? "dark" : ""
+            }`}
           >
             EXPERIENCE
           </h2>
@@ -23,7 +29,6 @@ export function ExperienceDetails() {
             aria-label="List of work experiences"
           >
             {EXPERIENCE.map((item) => (
-              // <ExperienceCard key={item.id} item={item} />
               <li key={item.id}>
                 <ExperienceCard item={item} />
               </li>

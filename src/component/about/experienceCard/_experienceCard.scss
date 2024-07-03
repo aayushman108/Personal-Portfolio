@@ -1,23 +1,28 @@
 .experience-card-container {
-  color: map-get($text, light, secondary); //light
-  color: map-get($text, dark, tertiary); //dark
+  color: map-get($text, light, secondary);
   font-size: map-get($font-size, md);
   padding: 1.5rem;
   border-radius: map-get($border-radius, md);
-  background-color: map-get($background, light, primary); //light
-  background-color: rgba(255, 255, 255, 0.05); //dark
+  background-color: map-get($background, light, primary);
   box-shadow: map-get($box-shadow, light, 2);
   width: 100%;
   height: 100%;
+  transition: all 0.5s ease;
+  &.dark {
+    color: map-get($text, dark, tertiary);
+    background-color: map-get($background, dark, darkTransparent, 1);
+  }
   .experience-card {
-    // border: 1px solid red;
     @include d-flex(column, center, center);
     &_designation {
-      color: map-get($text, light, primary); //light
-      color: map-get($text, dark, secondary); //dark
+      color: map-get($text, light, primary);
       margin: 0;
       font-size: map-get($font-size, "3xl");
       margin-bottom: 0.5rem;
+      transition: all 0.5s ease;
+      &.dark {
+        color: map-get($text, dark, secondary);
+      }
     }
     &_company {
       margin: 0;
@@ -47,11 +52,13 @@
       align-items: center;
       margin-bottom: 0.8rem;
       font-weight: 600;
-      color: map-get($background, dark, primary); //light
-      color: map-get($text, light, primary); //dark
+      color: map-get($background, dark, primary);
+      transition: all 0.5s ease;
+      &.dark {
+        color: map-get($text, light, primary);
+      }
     }
     &_list {
-      //   border: 1px solid blue;
       padding: 0 1rem;
       margin: 0;
       li {

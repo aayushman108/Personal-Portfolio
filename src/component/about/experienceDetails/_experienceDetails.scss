@@ -1,8 +1,12 @@
 .experience-details-container {
   width: 100%;
   height: 100%;
-  background-color: map-get($background, dark, tertiary); //dark
+  background-color: map-get($background, light, primary);
   padding: 2rem map-get($padding-x, "lg");
+  transition: all 0.5s ease;
+  &.dark {
+    background-color: map-get($background, dark, tertiary);
+  }
   @include responsive-for($md) {
     padding: 2rem map-get($padding-x, "sm");
   }
@@ -14,7 +18,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    // gap: 2rem;
     @include responsive-for($xlg) {
       grid-template-columns: 1fr;
     }
@@ -40,15 +43,11 @@
         height: 50%;
         left: 0;
         top: 0;
-        border-top: 10px solid map-get($background, dark, primary); //light
-        border-top: 10px solid map-get($text, light, primary); //dark
-        border-left: 10px solid map-get($background, dark, primary); //light
-        border-left: 10px solid map-get($text, light, primary); //dark
+        border-top: 10px solid map-get($text, light, primary);
+        border-left: 10px solid map-get($text, light, primary);
         @include responsive-for($xlg) {
-          border-top: 5px solid map-get($background, dark, primary); //light
-          border-top: 5px solid map-get($text, light, primary); //dark
-          border-left: 5px solid map-get($background, dark, primary); //light
-          border-left: 5px solid map-get($text, light, primary); //dark
+          border-top: 5px solid map-get($text, light, primary);
+          border-left: 5px solid map-get($text, light, primary);
         }
       }
       &::after {
@@ -59,15 +58,11 @@
         height: 50%;
         right: 0;
         bottom: 0;
-        border-bottom: 10px solid map-get($background, dark, primary); //light
-        border-bottom: 10px solid map-get($text, light, primary); //dark
-        border-right: 10px solid map-get($background, dark, primary); //light
-        border-right: 10px solid map-get($text, light, primary); //dark
+        border-bottom: 10px solid map-get($text, light, primary);
+        border-right: 10px solid map-get($text, light, primary);
         @include responsive-for($xlg) {
-          border-bottom: 5px solid map-get($background, dark, primary); //light
-          border-bottom: 5px solid map-get($text, light, primary); //dark
-          border-right: 5px solid map-get($background, dark, primary); //light
-          border-right: 5px solid map-get($text, light, primary); //dark
+          border-bottom: 5px solid map-get($text, light, primary);
+          border-right: 5px solid map-get($text, light, primary);
         }
       }
       img {
@@ -82,9 +77,12 @@
         font-size: map-get($font-size, "lg");
         font-family: "Baskervville SC", serif;
         font-weight: 600;
-        color: map-get($text, light, primary); //light
-        color: map-get($text, dark, secondary); //light
+        color: map-get($text, light, primary);
         margin-bottom: 1rem;
+        transition: all 0.5s ease;
+        &.dark {
+          color: map-get($text, dark, secondary);
+        }
       }
       &_list {
         display: flex;

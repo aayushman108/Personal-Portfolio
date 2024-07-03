@@ -1,3 +1,4 @@
+import { useAppSelector } from "../../store/hook.store";
 import { PortfolioCard } from "../portfolioCard";
 import { PORTFOLIO_LIST } from "./contant";
 
@@ -6,14 +7,18 @@ interface IProps {
 }
 
 export function Portfolio(props: IProps) {
+  const { theme } = useAppSelector((state) => state.theme);
   return (
     <section
-      className="portfolio-container"
+      className={`portfolio-container ${theme === "dark" ? "dark" : ""}`}
       id={props.id}
       aria-labelledby="portfolio-heading"
     >
       <div className="portfolio">
-        <h2 className="portfolio_heading" id="portfolio-heading">
+        <h2
+          className={`portfolio_heading ${theme === "dark" ? "dark" : ""}`}
+          id="portfolio-heading"
+        >
           PORTFOLIO
         </h2>
         <ul className="portfolio_list" aria-label="Portfolio projects">

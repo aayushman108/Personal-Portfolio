@@ -4,7 +4,6 @@
 @import "./experienceDetails/experienceDetails";
 
 .about-container {
-  // margin-top: 5rem;
   width: 100%;
   height: calc(100vh - 5rem);
   .about {
@@ -30,7 +29,6 @@
           .inner {
             height: 100%;
             width: 100%;
-            // border: 1px solid red;
           }
         }
       }
@@ -38,17 +36,20 @@
         border: none;
         background-color: transparent;
         cursor: pointer;
-        color: map-get($text, light, primary); //light
-        color: map-get($text, dark, primary); //dark
+        color: map-get($text, light, primary);
+        transition: all 0.5s ease;
+        &.dark {
+          color: map-get($text, dark, tertiary);
+          &:disabled {
+            color: map-get($text, light, primary);
+          }
+        }
         &:disabled {
-          // color: lighten(map-get($text, light, primary), 50%);
-          color: map-get($text, dark, primary); //light
-          color: map-get($text, light, primary); //dark
+          color: lighten(map-get($text, light, primary), 25%);
           cursor: not-allowed;
         }
         & > .icon {
           font-size: 3rem;
-          // color: red;
         }
         &--prev {
           position: absolute;

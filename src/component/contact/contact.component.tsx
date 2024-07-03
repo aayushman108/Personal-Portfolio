@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { validationSchema } from "../../utils/validateSchema";
+import { useAppSelector } from "../../store/hook.store";
 
 interface IProps {
   id: string;
@@ -14,6 +15,8 @@ interface IError {
   [key: string]: string;
 }
 export function Contact(props: IProps) {
+  const { theme } = useAppSelector((state) => state.theme);
+
   const initialValue = {
     name: "",
     email: "",
@@ -56,12 +59,14 @@ export function Contact(props: IProps) {
 
   return (
     <section
-      className="contact-container"
+      className={`contact-container ${theme === "dark" ? "dark" : ""}`}
       id={props.id}
       aria-label="Contact Form"
     >
       <div className="contact">
-        <h2 className="contact_heading">CONTACT ME</h2>
+        <h2 className={`contact_heading ${theme === "dark" ? "dark" : ""}`}>
+          CONTACT ME
+        </h2>
         <form
           onSubmit={handleSubmit}
           className="contact_form"
@@ -77,7 +82,9 @@ export function Contact(props: IProps) {
               value={formData.name}
               name="name"
               placeholder="Full name *"
-              className={`form-field_input ${errors?.name ? "error" : ""}`}
+              className={`form-field_input ${errors?.name ? "error" : ""} ${
+                theme === "dark" ? "dark" : ""
+              }`}
               onChange={handleChange}
               aria-required="true"
               aria-invalid={errors?.name ? "true" : "false"}
@@ -99,7 +106,9 @@ export function Contact(props: IProps) {
               value={formData.email}
               name="email"
               placeholder="Email address *"
-              className={`form-field_input ${errors?.email ? "error" : ""}`}
+              className={`form-field_input ${errors?.email ? "error" : ""} ${
+                theme === "dark" ? "dark" : ""
+              }`}
               onChange={handleChange}
               aria-required="true"
               aria-invalid={errors?.email ? "true" : "false"}
@@ -121,7 +130,9 @@ export function Contact(props: IProps) {
               value={formData.subject}
               name="subject"
               placeholder="Subject *"
-              className={`form-field_input ${errors?.subject ? "error" : ""}`}
+              className={`form-field_input ${errors?.subject ? "error" : ""} ${
+                theme === "dark" ? "dark" : ""
+              }`}
               onChange={handleChange}
               aria-required="true"
               aria-invalid={errors?.subject ? "true" : "false"}
@@ -145,7 +156,7 @@ export function Contact(props: IProps) {
               placeholder="Enter message *"
               className={`form-field_input ${
                 errors?.message ? "error" : ""
-              } textarea`}
+              } textarea ${theme === "dark" ? "dark" : ""}`}
               onChange={handleChange}
               aria-required="true"
               aria-invalid={errors?.message ? "true" : "false"}

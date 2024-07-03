@@ -2,16 +2,22 @@ import { useDispatch } from "react-redux";
 import { NAV_LINKS } from "../header/constant";
 import { setActiveSection } from "../../store/slices/main.slice";
 import { BASIC_CONTACT_DETAILS, SOCIAL_LINKS } from "../constant";
+import { useAppSelector } from "../../store/hook.store";
 
 interface IProps {
   scrollToSection: (section: string) => void;
 }
 export function Footer(props: IProps) {
   const dispatch = useDispatch();
+  const { theme } = useAppSelector((state) => state.theme);
+
   return (
-    <footer className="footer-container" aria-label="Footer">
+    <footer
+      className={`footer-container ${theme === "dark" ? "dark" : ""}`}
+      aria-label="Footer"
+    >
       <div className="footer">
-        <div className="footer_contact">
+        <div className={`footer_contact ${theme === "dark" ? "dark" : ""}`}>
           <h2 className="footer_contact_heading" id="contact-heading">
             Get In Touch
           </h2>
@@ -27,7 +33,9 @@ export function Footer(props: IProps) {
                       ? `mailto:${item.content}`
                       : `tel:${item.content}`
                   }
-                  className="general-item_link"
+                  className={`general-item_link ${
+                    theme === "dark" ? "dark" : ""
+                  }`}
                   aria-label={`${item.id}: ${item.content}`}
                 >
                   {item.icon}
@@ -41,7 +49,9 @@ export function Footer(props: IProps) {
               <li key={item.id} className="social-item">
                 <a
                   href={item.link}
-                  className="social-item_icon"
+                  className={`social-item_icon ${
+                    theme === "dark" ? "dark" : ""
+                  }`}
                   aria-label={`${item.id} profile`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -66,7 +76,9 @@ export function Footer(props: IProps) {
                   className="nav-link-item"
                 >
                   <button
-                    className="nav-link-item_button"
+                    className={`nav-link-item_button ${
+                      theme === "dark" ? "dark" : ""
+                    }`}
                     aria-label={`Go to ${item.title} section`}
                   >
                     {item.title}

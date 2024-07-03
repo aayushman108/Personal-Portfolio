@@ -1,12 +1,18 @@
 import React from "react";
 import { SOCIAL_LINKS } from "../constant";
+import { useAppSelector } from "../../store/hook.store";
 
 interface IProps {
   id: string;
 }
 export function Home(props: IProps) {
+  const { theme } = useAppSelector((state) => state.theme);
+
   return (
-    <section className="home-container" id={props.id}>
+    <section
+      className={`home-container ${theme === "dark" ? "dark" : ""}`}
+      id={props.id}
+    >
       <div className="home">
         <div className="home_intro-wrapper">
           <div className="home-intro">
@@ -24,7 +30,10 @@ export function Home(props: IProps) {
         </div>
         <ul className="home_social" aria-label="Social media links">
           {SOCIAL_LINKS.map((item) => (
-            <li key={item.id} className="social-item">
+            <li
+              key={item.id}
+              className={`social-item ${theme === "dark" ? "dark" : ""}`}
+            >
               <a
                 href={item.link}
                 className="social-item_icon"

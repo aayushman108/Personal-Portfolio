@@ -10,12 +10,17 @@ interface IProps {
 }
 export function SideNav(props: IProps) {
   const dispatch = useAppDispatch();
+  const { theme } = useAppSelector((state) => state.theme);
 
   const handleSideNavActive = () => {
     props.setShow(false);
   };
   return (
-    <nav className={`sidenav-container ${props.show ? "active" : ""}`}>
+    <nav
+      className={`sidenav-container ${props.show ? "active" : ""} ${
+        theme === "dark" ? "dark" : ""
+      }`}
+    >
       <div className="sidenav">
         <span className="sidenav_close">
           <RxCross2 onClick={handleSideNavActive} />

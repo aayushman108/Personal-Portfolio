@@ -6,11 +6,14 @@ import {
 
 import { useSwipeable } from "react-swipeable";
 import { ABOUT_ME } from "./constant";
+import { useAppSelector } from "../../store/hook.store";
 interface IProps {
   id: string;
 }
 
 export function About(props: IProps) {
+  const { theme } = useAppSelector((state) => state.theme);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoSlide, setAutoSlide] = useState<boolean>(false);
 
@@ -95,7 +98,7 @@ export function About(props: IProps) {
           </div>
           {/* BUTTONS */}
           <button
-            className="button button--prev"
+            className={`button button--prev ${theme === "dark" ? "dark" : ""}`}
             onClick={() => {
               setAutoSlide(false);
               handlePrev();
@@ -105,7 +108,7 @@ export function About(props: IProps) {
             <IoMdArrowDropleftCircle className="icon" />
           </button>
           <button
-            className="button button--next"
+            className={`button button--next ${theme === "dark" ? "dark" : ""}`}
             onClick={() => {
               setAutoSlide(false);
               handleNext();

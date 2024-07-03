@@ -1,5 +1,6 @@
 // import { SlCalender } from "react-icons/sl";
 // import { IoLocationOutline } from "react-icons/io5";
+import { useAppSelector } from "../../../store/hook.store";
 import { SKILLS } from "../constant";
 import { HiArrowLongRight } from "react-icons/hi2";
 
@@ -7,9 +8,12 @@ interface IProps {
   handleNext: () => void;
 }
 export function ProfessionalDetails(props: IProps) {
+  const { theme } = useAppSelector((state) => state.theme);
   return (
     <div
-      className="professional-details-container"
+      className={`professional-details-container ${
+        theme === "dark" ? "dark" : ""
+      }`}
       aria-labelledby="skills-heading"
     >
       <div className="professional-details">
@@ -36,12 +40,16 @@ export function ProfessionalDetails(props: IProps) {
         <div className="professional-details_skills item2">
           <h2
             id="skills-heading"
-            className="professional-details_skills_heading"
+            className={`professional-details_skills_heading ${
+              theme === "dark" ? "dark" : ""
+            }`}
           >
             SKILLS
           </h2>
           <div className="professional-details_skills_content">
-            <p className="short-description">
+            <p
+              className={`short-description ${theme === "dark" ? "dark" : ""}`}
+            >
               As a dedicated Associate Software Engineer, I have developed a
               diverse set of skills that enable me to tackle various challenges
               in the tech world. Here&apos;s a comprehensive list of my

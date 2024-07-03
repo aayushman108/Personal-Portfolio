@@ -5,6 +5,9 @@ import { SideNav } from "../sideNav";
 import { useDispatch } from "react-redux";
 import { setActiveSection } from "../../store/slices/main.slice";
 import { useAppSelector } from "../../store/hook.store";
+import { MdOutlineLightMode } from "react-icons/md";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { toggleTheme } from "../../store/slices/theme.slice";
 
 interface IProps {
   scrollToSection: (section: string) => void;
@@ -15,9 +18,14 @@ export function Header(props: IProps) {
 
   const dispatch = useDispatch();
   const { activeSection } = useAppSelector((state) => state.main);
+  const { theme } = useAppSelector((state) => state.theme);
 
   const handleHamburgerClick = () => {
     setShowSideNav(!showSideNav);
+  };
+
+  const handleModeBtnClick = () => {
+    dispatch(toggleTheme());
   };
 
   useEffect(() => {
@@ -29,7 +37,7 @@ export function Header(props: IProps) {
   }, [showSideNav]);
 
   return (
-    <header className="header-container">
+    <header className={`header-container ${theme === "dark" ? "dark" : ""}`}>
       {showSideNav && (
         <div
           className="sidenav-backdrop"
@@ -67,27 +75,53 @@ export function Header(props: IProps) {
             </li>
           ))}
         </ul>
-        <ul className="header_cv" aria-label="Aayushman Resume">
-          {DOWNLOAD_CV.map((item) => (
-            <li key={item.id} className="header_cv_item">
-              <a
-                className="item-link"
-                href={item.link}
-                aria-label="Download CV"
+        <div className="hamburger-cv-mode">
+          <div className="header_hamburger">
+            <GiHamburgerMenu
+              size={25}
+              onClick={handleHamburgerClick}
+              aria-label="Toggle navigation"
+              aria-expanded={showSideNav}
+            />
+          </div>
+          <ul className="header_cv" aria-label="Aayushman Resume">
+            {DOWNLOAD_CV.map((item) => (
+              <li key={item.id} className="header_cv_item">
+                <a
+                  className={`item-link ${theme === "dark" ? "dark" : ""}`}
+                  href={item.link}
+                  aria-label="Download CV"
+                >
+                  {item.icon}
+                  {item.content}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ul className={`header_mode ${theme === "dark" ? "dark" : ""}`}>
+            <li className="header_mode_item">
+              <button
+                className={`mode-btn ${
+                  theme === "dark" ? "mode-btn--highlight" : ""
+                } ${theme === "dark" ? "dark" : ""}`}
+                onClick={handleModeBtnClick}
+                disabled={theme === "dark"}
               >
-                {item.icon}
-                {item.content}
-              </a>
+                <MdOutlineDarkMode />
+              </button>
             </li>
-          ))}
-        </ul>
-        <div className="header_hamburger">
-          <GiHamburgerMenu
-            size={25}
-            onClick={handleHamburgerClick}
-            aria-label="Toggle navigation"
-            aria-expanded={showSideNav}
-          />
+            <li className="header_mode_item">
+              <button
+                className={`mode-btn ${
+                  theme === "light" ? "mode-btn--highlight" : ""
+                } ${theme === "dark" ? "dark" : ""}`}
+                onClick={handleModeBtnClick}
+                disabled={theme === "light"}
+              >
+                <MdOutlineLightMode />
+              </button>
+            </li>
+          </ul>
         </div>
       </nav>
     </header>
