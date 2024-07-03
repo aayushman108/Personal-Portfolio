@@ -16,13 +16,11 @@
     height: 100%;
     margin: 0 auto;
     display: grid;
-    align-content: center;
+    align-items: center;
     justify-content: space-between;
     grid-template-columns: 35% 55%;
     @include responsive-for($md) {
       grid-template-columns: 1fr;
-      gap: 2rem;
-      justify-content: center;
     }
     &_image {
       width: 100%;
@@ -65,10 +63,7 @@
         }
       }
       @include responsive-for($md) {
-        width: 30%;
-      }
-      @include responsive-for($mobile) {
-        width: 50%;
+        display: none;
       }
       img {
         width: 100%;
@@ -113,6 +108,9 @@
         &.dark {
           color: map-get($text, dark, tertiary);
         }
+        @include responsive-for($md) {
+          font-size: map-get($font-size, "xl");
+        }
       }
     }
   }
@@ -140,6 +138,7 @@
 
   @include responsive-for($md) {
     margin-top: 2rem;
+    font-size: map-get($font-size, "basic");
   }
   @include responsive-for($mobile) {
     margin-top: 1.5rem;

@@ -38,6 +38,7 @@
       &.dark {
         background-color: map-get($background, dark, tertiary);
       }
+
       @include responsive-for($md) {
         width: 30rem;
       }
@@ -87,6 +88,9 @@
             transition: all 0.5s ease;
             &.dark {
               color: map-get($text, dark, secondary);
+            }
+            &:hover {
+              color: map-get($text, light, primary);
             }
           }
         }

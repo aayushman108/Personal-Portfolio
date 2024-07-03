@@ -82,12 +82,21 @@
       &_content {
         & > .short-description {
           margin-bottom: 1.5rem;
-          width: 70%;
+          width: 75%;
           line-height: 1.5;
           color: map-get($text, light, secondary);
           transition: all 0.5s ease;
+          font-size: map-get($font-size, lg);
           &.dark {
             color: map-get($text, dark, tertiary);
+          }
+          @include responsive-for($lg) {
+            font-size: map-get($font-size, xl);
+            width: 90%;
+          }
+          @include responsive-for($md) {
+            font-size: map-get($font-size, xl);
+            width: 100%;
           }
         }
         .skills-list {

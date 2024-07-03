@@ -2,6 +2,7 @@ import { RxCross2 } from "react-icons/rx";
 import { SIDENAV_LINKS } from "./constant";
 import { useAppDispatch, useAppSelector } from "../../store/hook.store";
 import { setActiveSection } from "../../store/slices/main.slice";
+import { PiDownloadFill } from "react-icons/pi";
 
 interface IProps {
   show: boolean;
@@ -41,6 +42,17 @@ export function SideNav(props: IProps) {
             </li>
           ))}
         </ul>
+        <a
+          className={`sidenav_cv ${theme === "dark" ? "dark" : ""}`}
+          href="https://drive.google.com/file/d/1zeNSSM01WQUqxEhk-ZUce6SSVm0blQ8Q/view?usp=sharing"
+        >
+          <button
+            className={`sidenav_cv_btn ${theme === "dark" ? "dark" : ""}`}
+          >
+            <PiDownloadFill size={18} />
+            Download CV
+          </button>
+        </a>
       </div>
     </nav>
   );

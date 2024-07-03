@@ -2,7 +2,7 @@ import { PiDownloadFill } from "react-icons/pi";
 
 export const DOWNLOAD_CV = [
   {
-    id: "mobile number",
+    id: "download cv",
     icon: <PiDownloadFill size={18} />,
     content: "Download CV",
     link: "https://drive.google.com/file/d/1zeNSSM01WQUqxEhk-ZUce6SSVm0blQ8Q/view?usp=sharing",

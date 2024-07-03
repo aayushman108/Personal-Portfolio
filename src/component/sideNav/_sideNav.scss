@@ -27,13 +27,43 @@
       list-style-type: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 1.2rem;
       &_item {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 10px;
         font-weight: 600;
-        font-size: map-get($font-size, xl);
+        font-size: map-get($font-size, "3xl");
+      }
+    }
+    &_cv {
+      margin-top: 2rem;
+      text-decoration: none;
+      &.dark {
+        &:active {
+          color: map-get($text, light, secondary);
+        }
+      }
+      &:active {
+        color: map-get($text, dark, tertiary);
+      }
+      &_btn {
+        font-size: map-get($font-size, "xl");
+        color: map-get($text, light, secondary);
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: map-get($border-radius, lg);
+        border: 1px solid map-get($text, light, secondary);
+        background-color: transparent;
+        display: none;
+        @include responsive-for($mobile) {
+          @include d-flex();
+        }
+        &.dark {
+          color: map-get($text, dark, tertiary);
+          background-color: map-get($background, dark, darkTransparent, 2);
+          border: none;
+        }
       }
     }
   }
