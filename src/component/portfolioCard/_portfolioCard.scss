@@ -6,7 +6,7 @@
   background-color: map-get($background, light, primary);
   transition: all 0.5s ease;
   &.dark {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: map-get($background, dark, darkTransparent, 1);
   }
   .portfolio-card {
     width: 100%;
@@ -27,7 +27,7 @@
       opacity: 0;
       transition: opacity 0.5s ease;
       @include d-flex(column, center, center);
-      gap: 1rem;
+      gap: 0.5rem;
       padding: 1rem;
       background-color: map-get($background, light, primary);
       color: map-get($text, light, secondary);
@@ -36,10 +36,54 @@
         color: map-get($text, dark, secondary);
         background-color: map-get($background, dark, darkTransparent, 1);
       }
-      // &_title {
-      // }
-      // &_description {
-      // }
+      &_title {
+        text-align: center;
+        color: map-get($text, light, primary);
+        font-size: map-get($font-size, "2xl");
+        @include responsive-for($xlg) {
+          font-size: map-get($font-size, "lg");
+        }
+        @include responsive-for($lg) {
+          font-size: map-get($font-size, "8xl");
+        }
+        @include responsive-for($md) {
+          font-size: map-get($font-size, "6xl");
+        }
+        @include responsive-for($mobile) {
+          font-size: map-get($font-size, "3xl");
+        }
+        &.dark {
+          color: lighten(map-get($text, light, primary), 25%);
+        }
+      }
+      &_description,
+      &_status,
+      &_tech {
+        text-align: center;
+        line-height: 1.5;
+        font-size: map-get($font-size, "md");
+        @include responsive-for($xlg) {
+          font-size: map-get($font-size, "basic");
+        }
+        @include responsive-for($lg) {
+          font-size: map-get($font-size, "2xl");
+        }
+        @include responsive-for($md) {
+          font-size: map-get($font-size, "xl");
+        }
+        @include responsive-for($mobile) {
+          font-size: map-get($font-size, "lg");
+        }
+      }
+      &_status {
+        margin-top: 1rem;
+        text-align: left;
+        width: 100%;
+      }
+      &_tech {
+        text-align: left;
+        width: 100%;
+      }
     }
     &_main {
       width: 100%;

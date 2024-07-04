@@ -6,6 +6,8 @@ interface IProps {
     title: string;
     description: string;
     image: string;
+    status: string;
+    tech: string;
   };
 }
 export function PortfolioCard(props: IProps) {
@@ -21,16 +23,36 @@ export function PortfolioCard(props: IProps) {
           className={`portfolio-card_details ${theme === "dark" ? "dark" : ""}`}
         >
           <h1
-            className="portfolio-card_details_title"
+            className={`portfolio-card_details_title ${
+              theme === "dark" ? "dark" : ""
+            }`}
             id={`portfolio-title-${props.item.id}`}
           >
             {props.item.title}
           </h1>
           <p
-            className="portfolio-card_details_description"
+            className={`portfolio-card_details_description ${
+              theme === "dark" ? "dark" : ""
+            }`}
             id={`portfolio-description-${props.item.id}`}
           >
             {props.item.description}
+          </p>
+          <p
+            className={`portfolio-card_details_status ${
+              theme === "dark" ? "dark" : ""
+            }`}
+            id={`portfolio-status-${props.item.id}`}
+          >
+            Status: {props.item.status}
+          </p>
+          <p
+            className={`portfolio-card_details_tech ${
+              theme === "dark" ? "dark" : ""
+            }`}
+            id={`portfolio-tech-${props.item.id}`}
+          >
+            Technology: {props.item.tech}
           </p>
         </div>
         {/* Portfolio Card Image and Title */}
