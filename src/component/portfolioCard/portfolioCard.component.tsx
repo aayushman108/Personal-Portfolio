@@ -16,6 +16,7 @@ export function PortfolioCard(props: IProps) {
       aria-labelledby={`portfolio-title-${props.item.id}`}
     >
       <div className="portfolio-card">
+        {/* Portfolio Card Title and Description */}
         <div
           className={`portfolio-card_details ${theme === "dark" ? "dark" : ""}`}
         >
@@ -32,6 +33,7 @@ export function PortfolioCard(props: IProps) {
             {props.item.description}
           </p>
         </div>
+        {/* Portfolio Card Image and Title */}
         <div
           className="portfolio-card_main"
           aria-labelledby={`portfolio-title-${props.item.id}`}

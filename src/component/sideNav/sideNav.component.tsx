@@ -13,6 +13,9 @@ export function SideNav(props: IProps) {
   const dispatch = useAppDispatch();
   const { theme } = useAppSelector((state) => state.theme);
 
+  /**
+   * Handles close the sidenav.
+   */
   const handleSideNavActive = () => {
     props.setShow(false);
   };
@@ -24,12 +27,15 @@ export function SideNav(props: IProps) {
       aria-hidden={!props.show}
     >
       <div className="sidenav">
+        {/* Close button */}
         <button
           className={`sidenav_close ${theme === "dark" ? "dark" : ""}`}
           aria-label="Close side navigation"
         >
           <RxCross2 onClick={handleSideNavActive} />
         </button>
+
+        {/* Navigation links */}
         <ul className="sidenav_links" role="menu">
           {SIDENAV_LINKS.map((item) => (
             <li
@@ -48,6 +54,8 @@ export function SideNav(props: IProps) {
             </li>
           ))}
         </ul>
+
+        {/* Download CV link */}
         <a
           className={`sidenav_cv ${theme === "dark" ? "dark" : ""}`}
           href="https://drive.google.com/file/d/1zeNSSM01WQUqxEhk-ZUce6SSVm0blQ8Q/view?usp=sharing"

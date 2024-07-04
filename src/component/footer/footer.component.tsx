@@ -17,10 +17,12 @@ export function Footer(props: IProps) {
       aria-label="Footer"
     >
       <div className="footer">
+        {/* Basic and Social Contact Links */}
         <div className={`footer_contact ${theme === "dark" ? "dark" : ""}`}>
           <h2 className="footer_contact_heading" id="contact-heading">
             Get In Touch
           </h2>
+          {/* Email and Phone Links */}
           <ul
             className="footer_contact_general"
             aria-labelledby="contact-heading"
@@ -44,6 +46,7 @@ export function Footer(props: IProps) {
               </li>
             ))}
           </ul>
+          {/* Social Media Link Lists */}
           <ul className="footer_contact_social" aria-label="Social media links">
             {SOCIAL_LINKS.map((item) => (
               <li key={item.id} className="social-item">
@@ -62,8 +65,17 @@ export function Footer(props: IProps) {
             ))}
           </ul>
         </div>
+        {/* Navigation Links */}
         <div className="footer_nav-links">
-          <h1 className="footer-logo">Aayushman</h1>
+          <h1
+            className="footer-logo"
+            onClick={() => {
+              props.scrollToSection("home");
+              dispatch(setActiveSection("home"));
+            }}
+          >
+            Aayushman
+          </h1>
           <nav className="nav-links" aria-label="Footer navigation">
             <ul className="nav-links_list">
               {NAV_LINKS.map((item) => (

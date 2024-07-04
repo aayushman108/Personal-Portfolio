@@ -12,9 +12,11 @@ export function ExperienceDetails() {
       aria-labelledby="experience-heading"
     >
       <div className="experience-details">
+        {/* My Image */}
         <figure className="experience-details_image">
           <img src="/images/aayushmanSharma.jpg" alt="Aayushman Sharma" />
         </figure>
+
         <div className="experience-details-content">
           <h2
             id="experience-heading"
@@ -24,6 +26,7 @@ export function ExperienceDetails() {
           >
             EXPERIENCE
           </h2>
+          {/* List of Experiences */}
           <ul
             className="experience-details_content_list"
             aria-label="List of work experiences"

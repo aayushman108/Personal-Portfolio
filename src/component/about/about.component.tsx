@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   IoMdArrowDropleftCircle,
   IoMdArrowDroprightCircle,
@@ -17,15 +17,22 @@ export function About(props: IProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoSlide, setAutoSlide] = useState<boolean>(false);
 
+  //Carousel item count
   const itemCount = ABOUT_ME.length;
 
-  const handlePrev = () => {
+  /**
+   * Handles the previous button click by updating the currentIndex state.
+   */
+  const handlePrev = useCallback(() => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? itemCount - 1 : prevIndex - 1 <= 0 ? 0 : prevIndex - 1
     );
-  };
+  }, [itemCount]);
 
-  const handleNext = () => {
+  /**
+   * Handles the next button click by updating the currentIndex state.
+   */
+  const handleNext = useCallback(() => {
     if (autoSlide) {
       setCurrentIndex((prevIndex) =>
         prevIndex === itemCount - 1
@@ -43,8 +50,12 @@ export function About(props: IProps) {
         ? itemCount - 1
         : prevIndex + 1
     );
-  };
+  }, [autoSlide, itemCount]);
 
+  /**
+   * Handles the transform style for the carousel.
+   * @returns {Object} The transform style.
+   */
   const getTransformStyle = () => {
     const translateValue = -(currentIndex * 100);
     return {
@@ -52,6 +63,9 @@ export function About(props: IProps) {
     };
   };
 
+  /**
+   * Sets up an interval for auto-sliding the carousel when autoSlide is true.
+   */
   useEffect(() => {
     if (!autoSlide) return;
     const interval = setInterval(() => {
@@ -69,8 +83,15 @@ export function About(props: IProps) {
   });
 
   return (
-    <section className="about-container" id={props.id}>
-      <div className="about">
+    <section
+      className="about-container"
+      id={props.id}
+      aria-labelledby="about-heading"
+    >
+      <div className="about" role="region" aria-roledescription="carousel">
+        <h2 id="about-heading" className="visually-hidden">
+          About Me Section
+        </h2>
         <div
           className="carousel-container"
           onMouseEnter={() => setAutoSlide(false)}
@@ -80,6 +101,7 @@ export function About(props: IProps) {
             className="carousel"
             style={getTransformStyle()}
             {...swipeHandlers}
+            role="list"
           >
             {ABOUT_ME.map((item) => (
               <div
@@ -91,12 +113,14 @@ export function About(props: IProps) {
                   flexBasis: `100%`,
                   aspectRatio: 1,
                 }}
+                role="listitem"
               >
                 <div className="inner">{item.content(handleNext)}</div>
               </div>
             ))}
           </div>
           {/* BUTTONS */}
+          {/* Previous Button */}
           <button
             className={`button button--prev ${theme === "dark" ? "dark" : ""}`}
             onClick={() => {
@@ -104,9 +128,13 @@ export function About(props: IProps) {
               handlePrev();
             }}
             disabled={currentIndex === 0}
+            aria-label="Previous Slide"
+            aria-controls={props.id}
+            aria-disabled={currentIndex === 0}
           >
             <IoMdArrowDropleftCircle className="icon" />
           </button>
+          {/* Next Button */}
           <button
             className={`button button--next ${theme === "dark" ? "dark" : ""}`}
             onClick={() => {
@@ -114,6 +142,9 @@ export function About(props: IProps) {
               handleNext();
             }}
             disabled={currentIndex === itemCount - 1}
+            aria-label="Next Slide"
+            aria-controls={props.id}
+            aria-disabled={currentIndex === itemCount - 1}
           >
             <IoMdArrowDroprightCircle className="icon" />
           </button>

@@ -15,6 +15,7 @@ export function Home(props: IProps) {
       aria-labelledby="home"
     >
       <div className="home">
+        {/* Introduction */}
         <div className="home_intro-wrapper">
           <div className="home-intro">
             <span className="greet">HELLO I'M</span>
@@ -26,11 +27,13 @@ export function Home(props: IProps) {
             </p>
           </div>
         </div>
-        <div className="home_image-links">
+        {/* Hero Image */}
+        <div className="home_image">
           <figure className="hero-image">
             <img src="/images/aayushman-sharma.png" alt="Aayushman Sharma" />
           </figure>
         </div>
+        {/* Social Media Links List */}
         <ul className="home_social" aria-label="Social media links">
           {SOCIAL_LINKS.map((item) => (
             <li

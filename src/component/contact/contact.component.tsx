@@ -17,6 +17,7 @@ interface IError {
 export function Contact(props: IProps) {
   const { theme } = useAppSelector((state) => state.theme);
 
+  //Initial form values
   const initialValue = {
     name: "",
     email: "",
@@ -26,6 +27,10 @@ export function Contact(props: IProps) {
   const [formData, setFormData] = useState<IInititalValue>(initialValue);
   const [errors, setErrors] = useState<IError | null>(null);
 
+  /**
+   * MARK: Handles changes in the input fields.
+   * @param e - The change event.
+   */
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -38,6 +43,10 @@ export function Contact(props: IProps) {
     });
   };
 
+  /**
+   * MARK: Handles form submission.
+   * @param e - The form submit event.
+   */
   const handleSubmit = async (
     e: FormEvent<HTMLFormElement | HTMLButtonElement>
   ) => {
@@ -64,14 +73,17 @@ export function Contact(props: IProps) {
       aria-label="Contact Form"
     >
       <div className="contact">
+        {/* Contact Heading */}
         <h2 className={`contact_heading ${theme === "dark" ? "dark" : ""}`}>
           CONTACT ME
         </h2>
+        {/* Contact Form */}
         <form
           onSubmit={handleSubmit}
           className="contact_form"
           aria-label="Contact Form"
         >
+          {/* Name Input */}
           <div className="form-field">
             <label htmlFor="name" className="visually-hidden-label">
               Full name
@@ -96,6 +108,7 @@ export function Contact(props: IProps) {
               </div>
             )}
           </div>
+          {/* Email Input */}
           <div className="form-field">
             <label htmlFor="email" className="visually-hidden-label">
               Email address
@@ -120,6 +133,7 @@ export function Contact(props: IProps) {
               </div>
             )}
           </div>
+          {/* Subject Input */}
           <div className="form-field">
             <label htmlFor="subject" className="visually-hidden-label">
               Subject
@@ -144,6 +158,7 @@ export function Contact(props: IProps) {
               </div>
             )}
           </div>
+          {/* Message Textarea */}
           <div className="form-field">
             <label htmlFor="message" className="visually-hidden-label">
               Message
@@ -168,6 +183,7 @@ export function Contact(props: IProps) {
               </div>
             )}
           </div>
+          {/* Submit button */}
           <button type="submit" className="form-submit-btn">
             Submit
           </button>

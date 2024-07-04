@@ -1,16 +1,25 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { About, Contact, Footer, Header, Home, Portfolio } from "./component";
 import { setActiveSection } from "./store/slices/main.slice";
 import { useAppDispatch } from "./store/hook.store";
 
 function App() {
   const dispatch = useAppDispatch();
+
+  /**
+   * Effect to set "home" as active section when the component mounts.
+   */
   useEffect(() => {
     dispatch(setActiveSection("home"));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  /**
+   * Scrolls to a specific section on the page with smooth behavior.
+   *
+   * @param sectionId - ID of the specific section to scroll to.
+   */
+  const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       const offset = 80;
@@ -22,8 +31,12 @@ function App() {
         behavior: "smooth",
       });
     }
-  };
+  }, []);
 
+  /**
+   * Effect to handle section activation based on scroll position.
+   *
+   */
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["home", "about", "portfolio", "contact"];
@@ -44,8 +57,10 @@ function App() {
       }
     };
 
+    // Attach scroll event listener and initially call handleScroll
     window.addEventListener("scroll", handleScroll);
     handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

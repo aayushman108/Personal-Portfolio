@@ -20,14 +20,23 @@ export function Header(props: IProps) {
   const { activeSection } = useAppSelector((state) => state.main);
   const { theme } = useAppSelector((state) => state.theme);
 
+  /**
+   * MARK: Toggle sidenav visibility
+   */
   const handleHamburgerClick = () => {
     setShowSideNav(!showSideNav);
   };
 
+  /**
+   * MARK: Handle theme mode toggle
+   */
   const handleModeBtnClick = () => {
     dispatch(toggleTheme());
   };
 
+  /**
+   * Control body overflow when sidenav is active
+   */
   useEffect(() => {
     if (showSideNav) {
       document.body.style.overflow = "hidden";
@@ -38,6 +47,7 @@ export function Header(props: IProps) {
 
   return (
     <header className={`header-container ${theme === "dark" ? "dark" : ""}`}>
+      {/* Backdrop when sidenav is active */}
       {showSideNav && (
         <div
           className="sidenav-backdrop"
@@ -45,15 +55,17 @@ export function Header(props: IProps) {
           aria-hidden="true"
         ></div>
       )}
+      {/* Render SideNav component */}
       <SideNav
         show={showSideNav}
         setShow={setShowSideNav}
         scrollToSection={props.scrollToSection}
       />
+      {/* Main navigation section */}
       <nav className="header" role="navigation" aria-label="Main navigation">
         <h1
           className="header_logo"
-          onClick={() => props.scrollToSection("header")}
+          onClick={() => props.scrollToSection("home")}
         >
           Aayushman
         </h1>
@@ -75,7 +87,9 @@ export function Header(props: IProps) {
             </li>
           ))}
         </ul>
+        {/* Hamburger menu, CV, and theme mode section */}
         <div className="hamburger-cv-mode">
+          {/* Hamburger menu */}
           <div className="header_hamburger">
             <GiHamburgerMenu
               size={25}
@@ -84,6 +98,7 @@ export function Header(props: IProps) {
               aria-expanded={showSideNav}
             />
           </div>
+          {/* CV Download Link */}
           <ul className="header_cv" aria-label="Aayushman Resume">
             {DOWNLOAD_CV.map((item) => (
               <li key={item.id} className="header_cv_item">
@@ -98,6 +113,7 @@ export function Header(props: IProps) {
               </li>
             ))}
           </ul>
+          {/* Theme Mode Buttons */}
           <ul
             className={`header_mode ${theme === "dark" ? "dark" : ""}`}
             aria-label="Theme mode"

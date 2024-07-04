@@ -55,6 +55,8 @@ export function ProfessionalDetails(props: IProps) {
               in the tech world. Here&apos;s a comprehensive list of my
               technical skills:
             </p>
+
+            {/* List of Skills */}
             <ul className="skills-list" aria-label="List of technical skills">
               {SKILLS.map((item) => (
                 <li key={item.id} className="skills-list_item">
@@ -66,6 +68,10 @@ export function ProfessionalDetails(props: IProps) {
               ))}
             </ul>
           </div>
+          {/* 
+            Button to transition to my experience slide.
+            Triggers the handleNext function
+          */}
           <button
             className="learn-more-btn"
             onClick={props.handleNext}

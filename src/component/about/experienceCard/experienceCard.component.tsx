@@ -16,12 +16,14 @@ interface Props {
 }
 export function ExperienceCard(props: Props) {
   const { theme } = useAppSelector((state) => state.theme);
+
   return (
     <article
       className={`experience-card-container ${theme === "dark" ? "dark" : ""}`}
       aria-labelledby={`job-title-${props.item.id}`}
     >
       <div className="experience-card">
+        {/* My Designation */}
         <h3
           id={`job-title-${props.item.id}`}
           className={`experience-card_designation ${
@@ -30,12 +32,14 @@ export function ExperienceCard(props: Props) {
         >
           {props.item.designation}
         </h3>
+        {/* Company */}
         <h4
           id={`company-name-${props.item.id}`}
           className="experience-card_company"
         >
           {props.item.company}
         </h4>
+        {/* Date and Location */}
         <div className="experience-card_date-location">
           <div
             className="experience-card-date"
@@ -52,6 +56,7 @@ export function ExperienceCard(props: Props) {
             {props.item.location}
           </div>
         </div>
+        {/* Link to My Github and GitLab */}
         <a
           className={`experience-card_link ${theme === "dark" ? "dark" : ""}`}
           href={props.item.link}

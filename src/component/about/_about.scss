@@ -11,6 +11,18 @@
     display: flex;
     justify-content: space-between;
     height: 100%;
+    & > .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap; /* Added for IE11 */
+      clip-path: inset(100%);
+    }
     .carousel-container {
       width: 100%;
       height: 100%;
