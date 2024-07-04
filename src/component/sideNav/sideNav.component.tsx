@@ -21,12 +21,16 @@ export function SideNav(props: IProps) {
       className={`sidenav-container ${props.show ? "active" : ""} ${
         theme === "dark" ? "dark" : ""
       }`}
+      aria-hidden={!props.show}
     >
       <div className="sidenav">
-        <span className="sidenav_close">
+        <button
+          className={`sidenav_close ${theme === "dark" ? "dark" : ""}`}
+          aria-label="Close side navigation"
+        >
           <RxCross2 onClick={handleSideNavActive} />
-        </span>
-        <ul className="sidenav_links">
+        </button>
+        <ul className="sidenav_links" role="menu">
           {SIDENAV_LINKS.map((item) => (
             <li
               key={item.id}
@@ -36,6 +40,8 @@ export function SideNav(props: IProps) {
                 handleSideNavActive();
               }}
               className={`sidenav_links_item`}
+              role="menuitem"
+              aria-label={`Scroll to ${item.title}`}
             >
               {item.icon}
               {item.title}
@@ -45,9 +51,11 @@ export function SideNav(props: IProps) {
         <a
           className={`sidenav_cv ${theme === "dark" ? "dark" : ""}`}
           href="https://drive.google.com/file/d/1zeNSSM01WQUqxEhk-ZUce6SSVm0blQ8Q/view?usp=sharing"
+          aria-label="Download CV"
         >
           <button
             className={`sidenav_cv_btn ${theme === "dark" ? "dark" : ""}`}
+            aria-label="Download CV"
           >
             <PiDownloadFill size={18} />
             Download CV

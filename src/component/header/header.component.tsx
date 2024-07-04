@@ -98,7 +98,10 @@ export function Header(props: IProps) {
               </li>
             ))}
           </ul>
-          <ul className={`header_mode ${theme === "dark" ? "dark" : ""}`}>
+          <ul
+            className={`header_mode ${theme === "dark" ? "dark" : ""}`}
+            aria-label="Theme mode"
+          >
             <li className="header_mode_item">
               <button
                 className={`mode-btn ${
@@ -106,6 +109,8 @@ export function Header(props: IProps) {
                 } ${theme === "dark" ? "dark" : ""}`}
                 onClick={handleModeBtnClick}
                 disabled={theme === "dark"}
+                aria-pressed={theme === "dark"}
+                aria-label="Switch to dark mode"
               >
                 <MdOutlineDarkMode />
               </button>
@@ -117,6 +122,8 @@ export function Header(props: IProps) {
                 } ${theme === "dark" ? "dark" : ""}`}
                 onClick={handleModeBtnClick}
                 disabled={theme === "light"}
+                aria-pressed={theme === "light"}
+                aria-label="Switch to light mode"
               >
                 <MdOutlineLightMode />
               </button>

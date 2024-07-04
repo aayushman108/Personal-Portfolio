@@ -12,12 +12,15 @@ export function Home(props: IProps) {
     <section
       className={`home-container ${theme === "dark" ? "dark" : ""}`}
       id={props.id}
+      aria-labelledby="home"
     >
       <div className="home">
         <div className="home_intro-wrapper">
           <div className="home-intro">
             <span className="greet">HELLO I'M</span>
-            <h2 className="intro">Aayushman Sharma</h2>
+            <h2 className="intro" id="home-title">
+              Aayushman Sharma
+            </h2>
             <p className="passion">
               A Passionate <span>Software Engineer</span>
             </p>

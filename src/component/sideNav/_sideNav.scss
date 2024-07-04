@@ -22,6 +22,12 @@
     &_close {
       font-size: 28px;
       text-align: end;
+      background-color: transparent;
+      border: none;
+      color: map-get($text, light, secondary);
+      &.dark {
+        color: map-get($text, dark, secondary);
+      }
     }
     &_links {
       list-style-type: none;
