@@ -3,7 +3,7 @@
 This project was bootstrapped with Create React App.
 
 ## Demo
-You can view a live demo of the project [https://personal-portfolio-flax-kappa.vercel.app/](here).
+You can view a live demo of the project https://personal-portfolio-flax-kappa.vercel.app.
 
 
 ## Project Setup
@@ -11,20 +11,16 @@ You can view a live demo of the project [https://personal-portfolio-flax-kappa.v
 To get the project up and running on your local machine:
 
 ### Clone the repository:
-
 #### git clone https://github.com/aayushman108/Personal-Portfolio.git
 
 
 ### Navigate to the project directory:
-
 #### cd Personal-Portfolio
 
 ### Install dependencies:
-
 #### yarn install
 
 ### Start the development server:
-
 #### yarn start
 
 
