@@ -3,6 +3,9 @@ import { About, Contact, Footer, Header, Home, Portfolio } from "./component";
 import { setActiveSection } from "./store/slices/main.slice";
 import { useAppDispatch } from "./store/hook.store";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const dispatch = useAppDispatch();
 
@@ -73,6 +76,7 @@ function App() {
       <Portfolio id="portfolio" />
       <Contact id="contact" />
       <Footer scrollToSection={scrollToSection} />
+      <ToastContainer />
     </div>
   );
 }

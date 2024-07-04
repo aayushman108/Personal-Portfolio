@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { validationSchema } from "../../utils/validateSchema";
 import { useAppSelector } from "../../store/hook.store";
+import { toast } from "react-toastify";
 
 interface IProps {
   id: string;
@@ -53,7 +54,8 @@ export function Contact(props: IProps) {
     e.preventDefault();
     try {
       await validationSchema.validate(formData, { abortEarly: false });
-      console.log("Form submitted successfully");
+      toast.success("Form submitted successfully!");
+      setFormData(initialValue);
     } catch (errors) {
       if (errors instanceof Error) {
         const yupErrors = errors as any;

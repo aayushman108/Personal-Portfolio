@@ -1,10 +1,10 @@
 .contact-container {
   width: 100%;
-  background-color: map-get($background, light, tertiary); //light
+  background-color: map-get($background, light, tertiary);
   padding: 4rem map-get($padding-x, lg);
   transition: all 0.5s ease;
   &.dark {
-    background-color: map-get($background, dark, tertiary); //dark
+    background-color: map-get($background, dark, tertiary);
   }
   @include responsive-for($md) {
     padding: 4rem map-get($padding-x, sm);
@@ -25,7 +25,7 @@
       font-weight: 900;
       font-family: "Baskervville SC", serif;
       font-weight: 400;
-      color: map-get($text, light, secondary); //light
+      color: map-get($text, light, secondary);
       text-align: center;
       position: relative;
       display: inline-flex;
@@ -33,7 +33,7 @@
       align-items: center;
       transition: all 0.5s ease;
       &.dark {
-        color: map-get($text, dark, tertiary); //dark
+        color: map-get($text, dark, tertiary);
       }
       &::after {
         content: "";
@@ -61,17 +61,11 @@
           width: 100%;
           border: none;
           border-radius: map-get($border-radius, xs);
-          background-color: map-get($background, light, primary); //light
-          color: map-get($text, light, secondary); //light
-          transition: all 0.5s ease;
+          background-color: map-get($background, light, primary);
+          color: map-get($text, light, secondary);
           &.dark {
-            background-color: map-get(
-              $background,
-              dark,
-              darkTransparent,
-              1
-            ); //dark
-            color: map-get($text, dark, tertiary); //dark
+            background-color: map-get($background, dark, darkTransparent, 1);
+            color: map-get($text, dark, tertiary);
           }
           &.error {
             border: 1px solid map-get($text, danger);
