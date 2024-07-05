@@ -79,12 +79,16 @@
         margin-top: 1rem;
         text-align: left;
         width: 100%;
-        display: none;
+        @include responsive-for($mobile) {
+          display: none;
+        }
       }
       &_tech {
         text-align: left;
         width: 100%;
-        display: none;
+        @include responsive-for($mobile) {
+          display: none;
+        }
       }
     }
     &_main {
