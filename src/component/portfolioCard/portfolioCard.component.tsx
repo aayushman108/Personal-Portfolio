@@ -44,7 +44,8 @@ export function PortfolioCard(props: IProps) {
             }`}
             id={`portfolio-status-${props.item.id}`}
           >
-            Status: {props.item.status}
+            <span>STATUS</span>
+            <br /> {props.item.status}
           </p>
           <p
             className={`portfolio-card_details_tech ${
@@ -52,7 +53,8 @@ export function PortfolioCard(props: IProps) {
             }`}
             id={`portfolio-tech-${props.item.id}`}
           >
-            Technology: {props.item.tech}
+            <span>TECHNOLOGY</span>
+            <br /> {props.item.tech}
           </p>
         </div>
         {/* Portfolio Card Image and Title */}

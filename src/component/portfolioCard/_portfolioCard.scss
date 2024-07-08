@@ -26,7 +26,10 @@
       height: 100%;
       opacity: 0;
       transition: opacity 0.5s ease;
-      @include d-flex(column, center, center);
+      // @include d-flex(column, center, center);
+      display: grid;
+      align-content: center;
+      grid-template-columns: repeat(2, 1fr);
       gap: 0.5rem;
       padding: 1rem;
       background-color: map-get($background, light, primary);
@@ -37,6 +40,8 @@
         background-color: map-get($background, dark, darkTransparent, 1);
       }
       &_title {
+        grid-column-start: 1;
+        grid-column-end: 3;
         text-align: center;
         color: map-get($text, light, primary);
         font-size: map-get($font-size, "2xl");
@@ -75,19 +80,40 @@
           font-size: map-get($font-size, "lg");
         }
       }
+      &_description {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
       &_status {
-        margin-top: 1rem;
-        text-align: left;
         width: 100%;
+        text-align: left;
+        margin-top: 1rem;
         @include responsive-for($mobile) {
           display: none;
+        }
+        & > span {
+          color: map-get($text, light, primary);
+        }
+        &.dark {
+          & > span {
+            color: lighten(map-get($text, light, primary), 25%);
+          }
         }
       }
       &_tech {
         text-align: left;
         width: 100%;
+        margin-top: 1rem;
         @include responsive-for($mobile) {
           display: none;
+        }
+        & > span {
+          color: map-get($text, light, primary);
+        }
+        &.dark {
+          & > span {
+            color: lighten(map-get($text, light, primary), 25%);
+          }
         }
       }
     }
