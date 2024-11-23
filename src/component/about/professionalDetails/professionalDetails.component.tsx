@@ -1,6 +1,7 @@
 // import { SlCalender } from "react-icons/sl";
 // import { IoLocationOutline } from "react-icons/io5";
 import { useAppSelector } from "../../../store/hook.store";
+import { AnimateListItem } from "../../animateListItem";
 import { SKILLS } from "../constant";
 import { HiArrowLongRight } from "react-icons/hi2";
 
@@ -55,13 +56,14 @@ export function ProfessionalDetails() {
 
             {/* List of Skills */}
             <ul className="skills-list" aria-label="List of technical skills">
-              {SKILLS.map((item) => (
-                <li key={item.id} className="skills-list_item">
-                  <figure className="skills-list_item_image">
-                    <img src={item.icon} alt="" aria-hidden="true" />
-                  </figure>
-                  <h4 className="skills-list_item_title">{item.skill}</h4>
-                </li>
+              {SKILLS.map((item, index) => (
+                <AnimateListItem index={index} key={item.id}>
+                  <div className="skills-list_item">
+                    <figure className="skills-list_item_image">
+                      <img src={item.icon} alt="" aria-hidden="true" />
+                    </figure>
+                  </div>
+                </AnimateListItem>
               ))}
             </ul>
           </div>
