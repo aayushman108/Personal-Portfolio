@@ -17,7 +17,9 @@ export function PortfolioCard(props: IProps) {
       className={`portfolio-card-container ${theme === "dark" ? "dark" : ""}`}
       aria-labelledby={`portfolio-title-${props.item.id}`}
     >
-      <div className="portfolio-card">
+      <div
+        className={`portfolio-card ${props.item.id % 2 === 0 ? "ltr" : "rtl"}`}
+      >
         {/* Portfolio Card Title and Description */}
         <div
           className={`portfolio-card_details ${theme === "dark" ? "dark" : ""}`}
@@ -70,14 +72,6 @@ export function PortfolioCard(props: IProps) {
           >
             <img src={props.item.image} alt={props.item.title} />
           </figure>
-          <h4
-            className={`portfolio-card_main_title ${
-              theme === "dark" ? "dark" : ""
-            }`}
-            aria-hidden="true"
-          >
-            {props.item.title}
-          </h4>
         </div>
       </div>
     </article>

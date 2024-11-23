@@ -1,4 +1,5 @@
 import { useAppSelector } from "../../store/hook.store";
+import { AnimateListItem } from "../animateListItem";
 import { PortfolioCard } from "../portfolioCard";
 import { PORTFOLIO_LIST } from "./contant";
 
@@ -25,10 +26,12 @@ export function Portfolio(props: IProps) {
         </h2>
         {/* Portfolio List */}
         <ul className="portfolio_list" aria-label="Portfolio projects">
-          {PORTFOLIO_LIST.map((item) => (
-            <li key={item.id} className="portfolio_list_item">
-              <PortfolioCard item={item} />
-            </li>
+          {PORTFOLIO_LIST.map((item, index) => (
+            <AnimateListItem key={item.id} index={index}>
+              <div className="portfolio_list_item">
+                <PortfolioCard item={item} />
+              </div>
+            </AnimateListItem>
           ))}
         </ul>
       </div>

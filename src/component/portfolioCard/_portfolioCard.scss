@@ -11,38 +11,25 @@
   .portfolio-card {
     width: 100%;
     height: 100%;
-    position: relative;
-    &:hover {
-      .portfolio-card_details {
-        opacity: 1;
-      }
-      .portfolio-card_main {
-        opacity: 0;
-      }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    &.rtl {
+      direction: rtl;
     }
     &_details {
-      position: absolute;
       width: 100%;
       height: 100%;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      // @include d-flex(column, center, center);
-      display: grid;
-      align-content: center;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-direction: column;
       gap: 0.5rem;
       padding: 1rem;
       background-color: map-get($background, light, primary);
       color: map-get($text, light, secondary);
-      transition: all 0.5s ease;
       &.dark {
         color: map-get($text, dark, secondary);
         background-color: map-get($background, dark, darkTransparent, 1);
       }
       &_title {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        text-align: center;
         color: map-get($text, light, primary);
         font-size: map-get($font-size, "2xl");
         @include responsive-for($xlg) {
@@ -64,7 +51,6 @@
       &_description,
       &_status,
       &_tech {
-        text-align: center;
         line-height: 1.5;
         font-size: map-get($font-size, "md");
         @include responsive-for($xlg) {
@@ -81,8 +67,6 @@
         }
       }
       &_description {
-        grid-column-start: 1;
-        grid-column-end: 3;
       }
       &_status {
         width: 100%;
@@ -120,13 +104,10 @@
     &_main {
       width: 100%;
       height: 100%;
-      opacity: 1;
-      transition: opacity 0.5s ease;
       &_image {
         width: 100%;
-        height: calc(100% - 3rem);
+        height: 100%;
         background-color: map-get($background, light, primary);
-        transition: all 0.5s ease;
         &.dark {
           background-color: map-get($background, dark, darkTransparent, 1);
         }
