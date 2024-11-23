@@ -8,6 +8,12 @@ import { useAppSelector } from "../../store/hook.store";
 import { MdOutlineLightMode } from "react-icons/md";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { toggleTheme } from "../../store/slices/theme.slice";
+import {
+  easeInOut,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 
 interface IProps {
   scrollToSection: (section: string) => void;
@@ -45,8 +51,29 @@ export function Header(props: IProps) {
     }
   }, [showSideNav]);
 
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+
+    if (latest > Number(previous) && latest > 500) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
+
   return (
-    <header className={`header-container ${theme === "dark" ? "dark" : ""}`}>
+    <motion.header
+      variants={{
+        hidden: { y: "-100%" },
+        visible: { y: 0 },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.15, ease: "easeIn" }}
+      className={`header-container ${theme === "dark" ? "dark" : ""}`}
+    >
       {/* Backdrop when sidenav is active */}
       {showSideNav && (
         <div
@@ -147,6 +174,6 @@ export function Header(props: IProps) {
           </ul>
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }
