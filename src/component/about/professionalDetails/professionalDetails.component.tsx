@@ -4,10 +4,7 @@ import { useAppSelector } from "../../../store/hook.store";
 import { SKILLS } from "../constant";
 import { HiArrowLongRight } from "react-icons/hi2";
 
-interface IProps {
-  handleNext: () => void;
-}
-export function ProfessionalDetails(props: IProps) {
+export function ProfessionalDetails() {
   const { theme } = useAppSelector((state) => state.theme);
   return (
     <div
@@ -68,20 +65,6 @@ export function ProfessionalDetails(props: IProps) {
               ))}
             </ul>
           </div>
-          {/* 
-            Button to transition to my experience slide.
-            Triggers the handleNext function
-          */}
-          <button
-            className="learn-more-btn"
-            onClick={props.handleNext}
-            aria-label="See my experience"
-          >
-            SEE MY EXPERIENCE{" "}
-            <span className="arrow-icon" aria-hidden="true">
-              <HiArrowLongRight size={20} />
-            </span>
-          </button>
         </div>
       </div>
     </div>

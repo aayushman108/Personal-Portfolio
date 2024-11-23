@@ -1,11 +1,7 @@
 import { BiSolidLeftArrow } from "react-icons/bi";
-import { HiArrowLongRight } from "react-icons/hi2";
 import { useAppSelector } from "../../../store/hook.store";
 
-interface IProps {
-  handleNext: () => void;
-}
-export function BasicDetails(props: IProps) {
+export function BasicDetails() {
   const { theme } = useAppSelector((state) => state.theme);
 
   return (
@@ -54,20 +50,6 @@ export function BasicDetails(props: IProps) {
             am dedicated to creating efficient and user-friendly web interfaces
             while continuously learning and applying new technologies.
           </p>
-          {/* 
-            Button to transition to more details about Me.
-            Triggers the handleNext function
-          */}
-          <button
-            className="learn-more-btn"
-            onClick={props.handleNext}
-            aria-label="Learn more about Aayushman Sharma"
-          >
-            KNOW MORE ABOUT ME{" "}
-            <span className="arrow-icon" aria-hidden="true">
-              <HiArrowLongRight size={20} />
-            </span>
-          </button>
         </div>
       </div>
     </section>

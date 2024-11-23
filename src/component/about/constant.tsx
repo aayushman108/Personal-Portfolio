@@ -1,33 +1,19 @@
 import { BasicDetails } from "./basicDetails";
 import { ProfessionalDetails } from "./professionalDetails";
-import { BiLogoPostgresql } from "react-icons/bi";
-import { FaGitAlt, FaNode, FaReact, FaSass } from "react-icons/fa";
-import {
-  SiExpress,
-  SiJavascript,
-  SiNextdotjs,
-  SiRedux,
-  SiTypescript,
-} from "react-icons/si";
-import { TiHtml5 } from "react-icons/ti";
 import { ExperienceDetails } from "./experienceDetails";
 
 export const ABOUT_ME = [
   {
     id: 1,
-    content: (handleNext: () => void) => (
-      <BasicDetails handleNext={handleNext} />
-    ),
+    content: <BasicDetails />,
   },
   {
     id: 2,
-    content: (handleNext: () => void) => (
-      <ProfessionalDetails handleNext={handleNext} />
-    ),
+    content: <ProfessionalDetails />,
   },
   {
     id: 3,
-    content: (handleNext: () => void) => <ExperienceDetails />,
+    content: <ExperienceDetails />,
   },
 ];
 

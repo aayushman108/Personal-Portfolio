@@ -5,77 +5,26 @@
 
 .about-container {
   width: 100%;
-  height: calc(100vh - 5rem);
+  height: 500vh;
   .about {
     width: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
     display: flex;
-    justify-content: space-between;
-    height: 100%;
-    & > .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      border: 0;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap; /* Added for IE11 */
-      clip-path: inset(100%);
-    }
-    .carousel-container {
-      width: 100%;
-      height: 100%;
+    align-items: center;
+    overflow: hidden;
+    &__list {
       display: flex;
-      overflow: hidden;
-      position: relative;
-      .carousel {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      &__card {
+        min-width: 100vw;
+        height: 100%;
         display: flex;
-        flex-direction: row;
-        transition: transform 0.5s ease-in-out;
-        width: 100%;
-        &_item {
-          flex-grow: 0;
-          flex-shrink: 0;
-          box-sizing: border-box;
-          .inner {
-            height: 100%;
-            width: 100%;
-          }
-        }
-      }
-      .button {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        color: map-get($text, light, primary);
-        transition: all 0.5s ease;
-        &.dark {
-          color: map-get($text, dark, tertiary);
-          &:disabled {
-            color: map-get($text, light, primary);
-          }
-        }
-        &:disabled {
-          color: lighten(map-get($text, light, primary), 25%);
-          cursor: not-allowed;
-        }
-        & > .icon {
-          font-size: 3rem;
-        }
-        &--prev {
-          position: absolute;
-          top: 50%;
-          left: 1rem;
-          transform: translateY(-50%);
-        }
-        &--next {
-          position: absolute;
-          position: absolute;
-          top: 50%;
-          right: 1rem;
-          transform: translateY(-50%);
-        }
+        align-items: center;
       }
     }
   }
