@@ -1,12 +1,15 @@
 import { useScroll, useTransform, motion, easeInOut } from "framer-motion";
 import { useRef } from "react";
 import { ABOUT_ME } from "./constant";
+import { useAppSelector } from "../../store/hook.store";
 
 interface IProps {
   id: string;
 }
 
 export function About(props: IProps) {
+  const { theme } = useAppSelector((state) => state.theme);
+
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: sectionRef });
 
@@ -15,7 +18,11 @@ export function About(props: IProps) {
   });
 
   return (
-    <div id={props.id} ref={sectionRef} className="about-container">
+    <div
+      id={props.id}
+      ref={sectionRef}
+      className={`about-container ${theme === "dark" ? "dark" : ""}`}
+    >
       <div className="about">
         <motion.div style={{ x }}>
           <div className="about__list">

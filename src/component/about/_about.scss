@@ -6,6 +6,11 @@
 .about-container {
   width: 100%;
   height: 500vh;
+  background-color: map-get($background, light, primary);
+  transition: all 0.5s ease;
+  &.dark {
+    background-color: map-get($background, dark, tertiary);
+  }
   .about {
     width: 100%;
     height: 100vh;

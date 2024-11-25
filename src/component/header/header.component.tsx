@@ -8,12 +8,7 @@ import { useAppSelector } from "../../store/hook.store";
 import { MdOutlineLightMode } from "react-icons/md";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { toggleTheme } from "../../store/slices/theme.slice";
-import {
-  easeInOut,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-} from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 interface IProps {
   scrollToSection: (section: string) => void;
