@@ -1,4 +1,5 @@
 import { useAppSelector } from "../../../store/hook.store";
+import { AnimateListItem } from "../../animateListItem";
 import { EXPERIENCE } from "../constant";
 import { ExperienceCard } from "../experienceCard";
 
@@ -31,10 +32,10 @@ export function ExperienceDetails() {
             className="experience-details_content_list"
             aria-label="List of work experiences"
           >
-            {EXPERIENCE.map((item) => (
-              <li key={item.id}>
+            {EXPERIENCE.map((item, index) => (
+              <AnimateListItem index={index} key={index}>
                 <ExperienceCard item={item} />
-              </li>
+              </AnimateListItem>
             ))}
           </ul>
         </div>
