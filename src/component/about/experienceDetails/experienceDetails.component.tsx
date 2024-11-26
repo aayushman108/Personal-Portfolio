@@ -13,9 +13,9 @@ export function ExperienceDetails() {
     >
       <div className="experience-details">
         {/* My Image */}
-        <figure className="experience-details_image">
+        {/* <figure className="experience-details_image">
           <img src="/images/aayushmanSharma.jpg" alt="Aayushman Sharma" />
-        </figure>
+        </figure> */}
 
         <div className="experience-details-content">
           <h2

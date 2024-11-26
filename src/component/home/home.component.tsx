@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useRef } from "react";
 import { SOCIAL_LINKS } from "../constant";
 import { useAppSelector } from "../../store/hook.store";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 interface IProps {
   id: string;
 }
 export function Home(props: IProps) {
   const { theme } = useAppSelector((state) => state.theme);
+
+  const imageRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({ target: imageRef });
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.28, 0.4, 0.6, 0.8, 1],
+    [1, 1, 0.4, 0.2, 1, 1]
+  );
 
   return (
     <section
@@ -28,11 +39,11 @@ export function Home(props: IProps) {
           </div>
         </div>
         {/* Hero Image */}
-        <div className="home_image">
+        <motion.div className="home_image" style={{ opacity }} ref={imageRef}>
           <figure className="hero-image">
             <img src="/images/aayushman-sharma.png" alt="Aayushman Sharma" />
           </figure>
-        </div>
+        </motion.div>
         {/* Social Media Links List */}
         <ul className="home_social" aria-label="Social media links">
           {SOCIAL_LINKS.map((item) => (

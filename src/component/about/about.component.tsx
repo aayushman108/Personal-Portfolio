@@ -2,6 +2,7 @@ import { useScroll, useTransform, motion, easeInOut } from "framer-motion";
 import { useRef } from "react";
 import { ABOUT_ME } from "./constant";
 import { useAppSelector } from "../../store/hook.store";
+import { AnimateListItem } from "../animateListItem";
 
 interface IProps {
   id: string;

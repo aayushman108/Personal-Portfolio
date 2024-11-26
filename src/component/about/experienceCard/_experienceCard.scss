@@ -1,17 +1,17 @@
 .experience-card-container {
-  color: map-get($text, light, secondary);
+  // color: map-get($text, light, secondary);
   font-size: map-get($font-size, md);
   padding: 1.5rem;
   border-radius: map-get($border-radius, md);
-  background-color: map-get($background, light, primary);
+  // background-color: map-get($background, light, primary);
   box-shadow: map-get($box-shadow, light, 2);
   width: 100%;
   height: 100%;
   transition: all 0.5s ease;
-  &.dark {
-    color: map-get($text, dark, tertiary);
-    background-color: map-get($background, dark, darkTransparent, 1);
-  }
+  // &.dark {
+  //   color: map-get($text, dark, tertiary);
+  //   background-color: map-get($background, dark, darkTransparent, 1);
+  // }
   .experience-card {
     @include d-flex(column, center, center);
     &_designation {

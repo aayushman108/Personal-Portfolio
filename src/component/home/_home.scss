@@ -1,6 +1,6 @@
 .home-container {
   margin-top: 5rem;
-  height: 100%;
+  height: 100vh;
   background-color: map-get($background, light, secondary);
   color: map-get($text, light, secondary);
   &.dark {
@@ -8,16 +8,14 @@
     color: map-get($text, dark, tertiary);
   }
   .home {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     height: 100%;
     position: relative;
     @include responsive-for($lg) {
       grid-template-columns: 1fr;
     }
     &_intro-wrapper {
-      @include d-flex(column, center, center);
-      height: 100%;
+      @include d-flex(column, center, flex-start);
+      height: 100vh;
       width: 100%;
       .home-intro {
         padding: map-get($padding-x, lg);
@@ -50,23 +48,31 @@
 
     &_image {
       width: 100%;
-      @include d-flex();
+      position: absolute;
+      top: -80px;
+      height: 700vh;
       .hero-image {
-        width: 80%;
-        @include responsive-for($xlg) {
-          width: 90%;
-        }
-        @include responsive-for($lg) {
-          width: 50%;
-        }
-        @include responsive-for($md) {
-          width: 60%;
-        }
+        height: 100vh;
+        position: sticky;
+        top: 20vh;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        // @include responsive-for($xlg) {
+        //   width: 90%;
+        // }
+        // @include responsive-for($lg) {
+        //   width: 50%;
+        // }
+        // @include responsive-for($md) {
+        //   width: 60%;
+        // }
 
         img {
-          width: 100%;
-          height: 100%;
+          aspect-ratio: 0.8;
+          height: 80vh;
           object-fit: cover;
+          margin-right: 5rem;
         }
       }
     }

@@ -6,10 +6,10 @@
 .about-container {
   width: 100%;
   height: 500vh;
-  background-color: map-get($background, light, primary);
+  background-color: map-get($background, light, secondary);
   transition: all 0.5s ease;
   &.dark {
-    background-color: map-get($background, dark, tertiary);
+    background-color: map-get($background, dark, secondary);
   }
   .about {
     width: 100%;
