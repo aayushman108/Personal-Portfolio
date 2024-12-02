@@ -42,7 +42,8 @@ function App() {
    */
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "portfolio", "contact"];
+      // const sections = ["home", "about", "portfolio", "contact"];
+      const sections = ["home", "about", "portfolio"];
 
       const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
@@ -74,7 +75,7 @@ function App() {
       <Home id="home" />
       <About id="about" />
       <Portfolio id="portfolio" />
-      <Contact id="contact" />
+      {/* <Contact id="contact" /> */}
       <Footer scrollToSection={scrollToSection} />
       <ToastContainer />
     </div>

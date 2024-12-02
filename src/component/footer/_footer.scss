@@ -24,10 +24,10 @@
       background-color: map-get($background, light, primary);
       border-radius: map-get($border-radius, md);
       box-shadow: map-get($box-shadow, light, 2);
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      // position: absolute;
+      // top: 0;
+      // left: 50%;
+      // transform: translate(-50%, -50%);
       width: 32rem;
       height: fit-content;
       @include d-flex(column, center, center);

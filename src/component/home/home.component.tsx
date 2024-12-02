@@ -6,6 +6,36 @@ import { useScroll, useTransform, motion } from "framer-motion";
 interface IProps {
   id: string;
 }
+
+const container = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.5,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const child = {
+  initial: {
+    y: 100,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+      ease: [0.47, 0, 0.745, 0.715],
+    },
+  },
+};
+
 export function Home(props: IProps) {
   const { theme } = useAppSelector((state) => state.theme);
 
@@ -28,15 +58,22 @@ export function Home(props: IProps) {
       <div className="home">
         {/* Introduction */}
         <div className="home_intro-wrapper">
-          <div className="home-intro">
-            <span className="greet">HELLO I'M</span>
-            <h2 className="intro" id="home-title">
+          <motion.div
+            variants={container}
+            initial="initial"
+            animate="animate"
+            className="home-intro"
+          >
+            <motion.span variants={child} className="greet">
+              HELLO I'M
+            </motion.span>
+            <motion.h2 variants={child} className="intro" id="home-title">
               Aayushman Sharma
-            </h2>
-            <p className="passion">
+            </motion.h2>
+            <motion.p variants={child} className="passion">
               A Passionate <span>Software Engineer</span>
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
         {/* Hero Image */}
         <motion.div className="home_image" style={{ opacity }} ref={imageRef}>
@@ -45,10 +82,17 @@ export function Home(props: IProps) {
           </figure>
         </motion.div>
         {/* Social Media Links List */}
-        <ul className="home_social" aria-label="Social media links">
+        <motion.ul
+          variants={container}
+          initial="initial"
+          animate="animate"
+          className="home_social"
+          aria-label="Social media links"
+        >
           {SOCIAL_LINKS.map((item) => (
-            <li
+            <motion.li
               key={item.id}
+              variants={child}
               className={`social-item ${theme === "dark" ? "dark" : ""}`}
             >
               <a
@@ -60,9 +104,9 @@ export function Home(props: IProps) {
               >
                 {item.icon}
               </a>
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
     </section>
   );

@@ -86,7 +86,7 @@
           line-height: 1.5;
           color: map-get($text, light, secondary);
           transition: all 0.5s ease;
-          font-size: map-get($font-size, lg);
+          font-size: map-get($font-size, xl);
           &.dark {
             color: map-get($text, dark, tertiary);
           }

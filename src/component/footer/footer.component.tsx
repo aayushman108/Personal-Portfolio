@@ -18,11 +18,11 @@ export function Footer(props: IProps) {
     >
       <div className="footer">
         {/* Basic and Social Contact Links */}
-        <div className={`footer_contact ${theme === "dark" ? "dark" : ""}`}>
+        {/* <div className={`footer_contact ${theme === "dark" ? "dark" : ""}`}>
           <h2 className="footer_contact_heading" id="contact-heading">
             Get In Touch
           </h2>
-          {/* Email and Phone Links */}
+          {/* Email and Phone Links 
           <ul
             className="footer_contact_general"
             aria-labelledby="contact-heading"
@@ -46,7 +46,7 @@ export function Footer(props: IProps) {
               </li>
             ))}
           </ul>
-          {/* Social Media Link Lists */}
+          {/* Social Media Link Lists 
           <ul className="footer_contact_social" aria-label="Social media links">
             {SOCIAL_LINKS.map((item) => (
               <li key={item.id} className="social-item">
@@ -64,7 +64,7 @@ export function Footer(props: IProps) {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
         {/* Navigation Links */}
         <div className="footer_nav-links">
           <h1

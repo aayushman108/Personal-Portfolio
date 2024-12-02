@@ -27,6 +27,7 @@
           color: map-get($text, light, primary);
           font-size: map-get($font-size, "6xl");
           letter-spacing: 3px;
+          display: inline-block;
         }
         & > .intro {
           font-size: 60px;
@@ -50,7 +51,7 @@
       width: 100%;
       position: absolute;
       top: -80px;
-      height: 700vh;
+      height: 725vh;
       .hero-image {
         height: 100vh;
         position: sticky;
