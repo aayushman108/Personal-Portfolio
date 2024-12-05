@@ -1,3 +1,5 @@
+@import "./contactForm/contactForm";
+
 .contact-container {
   width: 100%;
   background-color: map-get($background, light, tertiary);
@@ -20,92 +22,58 @@
     @include responsive-for($md) {
       padding-bottom: 8rem;
     }
-    &_heading {
-      font-size: map-get($font-size, "4xl");
-      font-weight: 900;
-      font-family: "Baskervville SC", serif;
-      font-weight: 400;
-      color: map-get($text, light, secondary);
-      text-align: center;
-      position: relative;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      transition: all 0.5s ease;
-      &.dark {
-        color: map-get($text, dark, tertiary);
-      }
-      &::after {
-        content: "";
-        position: absolute;
-        width: 75%;
-        height: 4px;
-        background-color: map-get($text, light, primary);
-        top: calc(100% + 4px);
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: map-get($border-radius, sm);
+    &_header {
+      width: 100%;
+      font-size: 90px;
+      font-weight: 800;
+      & > p {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        & > span:first-child {
+          margin-right: 1rem;
+        }
+        & > img {
+          height: 150px;
+          aspect-ratio: 1;
+        }
       }
     }
-    &_form {
-      max-width: 500px;
-      width: 100%;
-      border-radius: map-get($border-radius, md);
-      .form-field {
-        margin-bottom: 1rem;
-        width: 100%;
-        &_input {
-          font-family: "DM Sans", "Montserrat", sans-serif;
-          font-size: map-get($font-size, "lg");
-          padding: 12px 16px;
-          width: 100%;
-          border: none;
-          border-radius: map-get($border-radius, xs);
-          background-color: map-get($background, light, primary);
-          color: map-get($text, light, secondary);
-          &.dark {
-            background-color: map-get($background, dark, darkTransparent, 1);
-            color: map-get($text, dark, tertiary);
-          }
-          &.error {
-            border: 1px solid map-get($text, danger);
-          }
-          &:focus {
-            outline: 2px solid map-get($text, light, primary);
-            border: none;
-          }
-        }
-        &_error {
-          font-size: map-get($font-size, "sm");
-          color: map-get($text, danger);
-          margin-top: 5px;
-        }
+    &_details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      & > p {
+        font-size: 22px;
       }
-      .form-submit-btn {
-        padding: 12px 16px;
-        background-color: map-get($text, light, primary);
-        border: none;
-        border-radius: map-get($border-radius, "sm");
-        color: $white;
-        font-size: map-get($font-size, "md");
-        font-weight: 600;
-        width: 100%;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+      & > a {
+        color: gray;
+        text-decoration: none;
+        font-size: 18px;
         &:hover {
-          background-color: darken(map-get($text, light, primary), 5%);
+          color: blue;
         }
       }
-      .visually-hidden-label {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
+    }
+    &_socials {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      & > a {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        li {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 18px;
+          border: 1px solid black;
+          padding: 5px 16px;
+          border-radius: 24px;
+        }
       }
     }
   }
