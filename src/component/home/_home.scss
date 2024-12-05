@@ -25,12 +25,12 @@
         }
         & > .greet {
           color: map-get($text, light, primary);
-          font-size: map-get($font-size, "6xl");
+          font-size: map-get($font-size, "11xl");
           letter-spacing: 3px;
           display: inline-block;
         }
         & > .intro {
-          font-size: 60px;
+          font-size: map-get($font-size, "15xl");
           font-family: "Dancing Script", cursive;
           font-optical-sizing: auto;
           font-weight: 900;
@@ -38,9 +38,9 @@
           margin-bottom: 2rem;
         }
         & > .passion {
-          font-size: map-get($font-size, "3xl");
+          font-size: map-get($font-size, "9xl");
           span {
-            font-size: map-get($font-size, "11xl");
+            font-size: map-get($font-size, "13xl");
             color: map-get($text, light, primary);
           }
         }
